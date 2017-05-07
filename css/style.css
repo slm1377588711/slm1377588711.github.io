@@ -2706,10 +2706,10 @@ color
   height: 35px;
 }
 .article-entry table thead tr {
-  background: #2d2d2d;
+  background: rgba(124,91,110,0.89);
 }
 .article-entry table tbody tr:hover {
-  background: #151414;
+  background: rgba(124,91,110,0.89);
 }
 .article-entry table td,
 .article-entry table th {
@@ -3376,7 +3376,7 @@ color
 .article-entry .highlight::before {
   content: attr(data-lang) " code";
   display: block;
-  background-color: #0083a0;
+  background-color: rgba(121,84,102,0.59);
   margin: 0 -10px 16px -10px;
   padding: 8px 16px;
   color: #efefef;
