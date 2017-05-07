@@ -139,8 +139,12 @@ body,
 body {
   font-family: "微软雅黑", 'Microsoft JhengHei', Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
   font-size: 16px;
-  background: #3f3f3f;
-  color: #999;
+  background: url("../img/bg000.jpg");
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  color: #090909;
   -webkit-overflow-scrolling: touch;
 }
 ::selection {
@@ -2567,7 +2571,7 @@ color
   color: #c8c8c8;
 }
 .article-title {
-  color: #999;
+  color: #989ea2;
   margin-left: 0px;
   font-weight: initial;
   line-height: 35px;
@@ -2736,10 +2740,10 @@ color
   z-index: 1;
 }
 .article-meta time {
-  color: #aaa;
+  color: #9fb1bf;
 }
 .article-meta time:before {
-  color: #999;
+  color: #9fb1bf;
   content: "\f073";
   font: 17px FontAwesome;
   margin-right: 10px;
