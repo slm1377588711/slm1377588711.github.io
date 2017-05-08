@@ -3220,14 +3220,14 @@ color
   font-family: Menlo, Consolas, "Source Code Pro", Inconsolata, Monaco, monospace;
 }
 .article-entry blockquote {
-  background-color: #555;
+  background-color: rgba(165,155,164,0.69);
   padding: 10px 15px;
   word-break: break-word;
   margin: 10px 0px;
-  border-left: 4px solid #2f2f2f;
-  border-top: 1px dashed #000;
-  border-right: 1px dashed #000;
-  border-bottom: 1px dashed #000;
+  border-left: 2px solid rgba(161,183,187,0.42);
+  border-top: 1px dashed #fff;
+  border-right: 1px dashed #fff;
+  border-bottom: 1px dashed #fff;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -3250,7 +3250,7 @@ color
 }
 .article-entry p code {
   margin: 0 3px;
-  border: dashed 1px #000;
+  border: dashed 1px #fff;
   color: #999;
   padding: 1px 8px;
   font-size: 90%;
@@ -3306,7 +3306,7 @@ color
   margin: 0.5em auto;
   color: #fff;
   background: rgba(0,0,0,0.27);
-  border: 1px dashed #020202;
+  border: 1px dashed #fff;
   padding: 0.2em 0.6em;
   font-weight: normal;
   border-radius: 6px;
@@ -3317,8 +3317,8 @@ color
 .article-entry h4 {
   margin: 0.5em auto;
   color: #fff;
-  background: #5a5a5a;
-  border: 1px dashed #020202;
+  background: rgba(165,155,164,0.69);
+  border: 1px dashed #fff;
   padding: 0.2em 0.6em;
   font-weight: normal;
   -webkit-border-radius: 6px;
