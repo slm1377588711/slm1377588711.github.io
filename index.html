@@ -287,11 +287,11 @@
 <ul>
 <li>按数据流的方向不同可分为：输入流和输出流</li>
 <li>按处理数据单位不同可分为：字节流和字符流（一个字节（byte）是8位(bit)）</li>
-<li>按照功能不同可以分为：节点流和处理流（读写数据）和（包装数据）<h5 id="节点流"><a href="#节点流" class="headerlink" title="节点流"></a>节点流</h5><img src="/img/random.jpg" alt="alt text" title="Title"></li>
+<li>按照功能不同可以分为：节点流和处理流（读写数据）和（包装数据）<h5 id="节点流"><a href="#节点流" class="headerlink" title="节点流"></a>节点流</h5><img src="/img/jiedian.jpg" alt="alt 节点流" title="节点流"></li>
 </ul>
 <blockquote>
 <p>就是一根管道直接插到数据源上面，直接读写数据：字节输入输出流（FileInputStream，FileOutputStream），文件的字符输入输出流（FileReader，FileWriter）</p>
-<h5 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h5><p><img src="/img/random.jpg" alt="alt text" title="Title"></p>
+<h5 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h5><p><img src="/img/chuli.jpg" alt="alt 处理流" title="处理流"></p>
 </blockquote>
 <h6 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h6><p>4种</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">BufferedReader(Reader in);</div><div class="line">BufferedReader(Reader in,int size);//size为自定义缓冲区的大小</div><div class="line">BufferedWriter(Writer out);</div><div class="line">BufferedWriter(Writer out,int size);</div><div class="line">BufferedInputStream(InputStream in);</div><div class="line">BufferedInputStream(InputStream in,int size)</div><div class="line">BufferedOutputStream(OutputStream,out,int size);</div><div class="line">BufferedOutputStream(OutputStream out,int size);</div></pre></td></tr></table></figure>
@@ -327,9 +327,9 @@
 <hr>
 <p>输入输出对象，就需要把对象序列化成一个字节流，再用对象流包装后，直接输出对象<br>直接将Object写入或读出<br>把对象序列化成一个字节流，要实现序列化接口。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">FileOutputStream fos = new FileOutputStream (file);</div><div class="line">ObjectOutputStream oos = new ObjectOutputStream (fos );</div><div class="line">Student stu = new Student(&quot;值1&quot;,&quot;值2&quot;);//实现Serializable接口</div><div class="line">oos.writeObject(stu);</div><div class="line">oos.flush();</div><div class="line">oos.close();</div><div class="line">反序列化</div><div class="line">FileInputStream fis = new FileInputStream (file);</div><div class="line">ObjectInputStream ois = new ObjectInputStream (fos );</div><div class="line">Student stu = (Student)ois.readObject();//实现Serializable接口</div><div class="line">ois.close();</div></pre></td></tr></table></figure>
-<p>IO总结<br><img src="/img/random.jpg" alt="alt text" title="Title"></p>
-<p>例子<br><img src="/img/random.jpg" alt="alt text" title="Title"></p>
-<p>特例<br><img src="/img/random.jpg" alt="alt text" title="Title"></p>
+<p>IO总结<br><img src="/img/zongjie.jpg" alt="alt 总结" title="总结"></p>
+<p>例子<br><img src="/img/demo.jpg" alt="alt 例子" title="例子"></p>
+<p>特例<br><img src="/img/random.jpg" alt="alt 特例" title="特例"></p>
 
       
       
@@ -770,73 +770,6 @@
 
 
   
-    <article id="post-android-permission2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/05/06/android-permission2/" class="article-date">
-      <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/android-permission2/">Android运行时权限处理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="运行时权限的处理"><a href="#运行时权限的处理" class="headerlink" title="运行时权限的处理"></a>运行时权限的处理</h2><h3 id="运行时判断并让用户选择"><a href="#运行时判断并让用户选择" class="headerlink" title="运行时判断并让用户选择"></a>运行时判断并让用户选择</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ContextCompat.checkSelfPermission(MainActivity.<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">	ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>, <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;, <span class="number">1</span>);</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">	openAlbum();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android权限/">Android权限</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/05/06/android-permission2/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-android-permission12" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -904,10 +837,10 @@
 
 
   
-    <article id="post-android-permission5" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-android-permission9" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/06/android-permission5/" class="article-date">
+      <a href="/2017/05/06/android-permission9/" class="article-date">
       <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
 </a>
     </div>
@@ -921,7 +854,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/android-permission5/">Android运行时权限处理</a>
+      <a class="article-title" href="/2017/05/06/android-permission9/">Android运行时权限处理</a>
     </h1>
   
 
@@ -952,7 +885,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/05/06/android-permission5/#more">去看看 >></a>
+          <a  href="/2017/05/06/android-permission9/#more">去看看 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -971,10 +904,10 @@
 
 
   
-    <article id="post-android-permission8" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-android-permission3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/06/android-permission8/" class="article-date">
+      <a href="/2017/05/06/android-permission3/" class="article-date">
       <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
 </a>
     </div>
@@ -988,7 +921,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/android-permission8/">Android运行时权限处理</a>
+      <a class="article-title" href="/2017/05/06/android-permission3/">Android运行时权限处理</a>
     </h1>
   
 
@@ -1019,7 +952,74 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/05/06/android-permission8/#more">去看看 >></a>
+          <a  href="/2017/05/06/android-permission3/#more">去看看 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-android-permission4" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/06/android-permission4/" class="article-date">
+      <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/06/android-permission4/">Android运行时权限处理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="运行时权限的处理"><a href="#运行时权限的处理" class="headerlink" title="运行时权限的处理"></a>运行时权限的处理</h2><h3 id="运行时判断并让用户选择"><a href="#运行时判断并让用户选择" class="headerlink" title="运行时判断并让用户选择"></a>运行时判断并让用户选择</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ContextCompat.checkSelfPermission(MainActivity.<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">	ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>, <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;, <span class="number">1</span>);</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">	openAlbum();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android权限/">Android权限</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/05/06/android-permission4/#more">去看看 >></a>
         </p>
       
       <div class="clearfix"></div>

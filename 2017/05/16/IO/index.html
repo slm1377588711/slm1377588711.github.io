@@ -12,16 +12,16 @@
 <meta property="og:url" content="http://dreammei.me/2017/05/16/IO/index.html">
 <meta property="og:site_name" content="宋丽妹的博客">
 <meta property="og:description" content="IO   流向 字节流 字符流     输入流 InputStream Reader   输出流 outputStream Writer     按数据流的方向不同可分为：输入流和输出流 按处理数据单位不同可分为：字节流和字符流（一个字节（byte）是8位(bit)） 按照功能不同可以分为：节点流和处理流（读写数据）和（包装数据）节点流   就是一根管道直接插到数据源上面，直接读写数据：字节输入输">
+<meta property="og:image" content="http://dreammei.me/img/jiedian.jpg">
+<meta property="og:image" content="http://dreammei.me/img/chuli.jpg">
+<meta property="og:image" content="http://dreammei.me/img/zongjie.jpg">
+<meta property="og:image" content="http://dreammei.me/img/demo.jpg">
 <meta property="og:image" content="http://dreammei.me/img/random.jpg">
-<meta property="og:image" content="http://dreammei.me/img/random.jpg">
-<meta property="og:image" content="http://dreammei.me/img/random.jpg">
-<meta property="og:image" content="http://dreammei.me/img/random.jpg">
-<meta property="og:image" content="http://dreammei.me/img/random.jpg">
-<meta property="og:updated_time" content="2017-05-17T03:27:06.513Z">
+<meta property="og:updated_time" content="2017-05-17T03:46:45.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IO">
 <meta name="twitter:description" content="IO   流向 字节流 字符流     输入流 InputStream Reader   输出流 outputStream Writer     按数据流的方向不同可分为：输入流和输出流 按处理数据单位不同可分为：字节流和字符流（一个字节（byte）是8位(bit)） 按照功能不同可以分为：节点流和处理流（读写数据）和（包装数据）节点流   就是一根管道直接插到数据源上面，直接读写数据：字节输入输">
-<meta name="twitter:image" content="http://dreammei.me/img/random.jpg">
+<meta name="twitter:image" content="http://dreammei.me/img/jiedian.jpg">
   
     <link rel="alternative" href="/atom.xml" title="宋丽妹的博客" type="application/atom+xml">
   
@@ -301,11 +301,11 @@
 <ul>
 <li>按数据流的方向不同可分为：输入流和输出流</li>
 <li>按处理数据单位不同可分为：字节流和字符流（一个字节（byte）是8位(bit)）</li>
-<li>按照功能不同可以分为：节点流和处理流（读写数据）和（包装数据）<h5 id="节点流"><a href="#节点流" class="headerlink" title="节点流"></a>节点流</h5><img src="/img/random.jpg" alt="alt text" title="Title"></li>
+<li>按照功能不同可以分为：节点流和处理流（读写数据）和（包装数据）<h5 id="节点流"><a href="#节点流" class="headerlink" title="节点流"></a>节点流</h5><img src="/img/jiedian.jpg" alt="alt 节点流" title="节点流"></li>
 </ul>
 <blockquote>
 <p>就是一根管道直接插到数据源上面，直接读写数据：字节输入输出流（FileInputStream，FileOutputStream），文件的字符输入输出流（FileReader，FileWriter）</p>
-<h5 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h5><p><img src="/img/random.jpg" alt="alt text" title="Title"></p>
+<h5 id="处理流"><a href="#处理流" class="headerlink" title="处理流"></a>处理流</h5><p><img src="/img/chuli.jpg" alt="alt 处理流" title="处理流"></p>
 </blockquote>
 <h6 id="缓冲流"><a href="#缓冲流" class="headerlink" title="缓冲流"></a>缓冲流</h6><p>4种</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">BufferedReader(Reader in);</div><div class="line">BufferedReader(Reader in,int size);//size为自定义缓冲区的大小</div><div class="line">BufferedWriter(Writer out);</div><div class="line">BufferedWriter(Writer out,int size);</div><div class="line">BufferedInputStream(InputStream in);</div><div class="line">BufferedInputStream(InputStream in,int size)</div><div class="line">BufferedOutputStream(OutputStream,out,int size);</div><div class="line">BufferedOutputStream(OutputStream out,int size);</div></pre></td></tr></table></figure>
@@ -341,9 +341,9 @@
 <hr>
 <p>输入输出对象，就需要把对象序列化成一个字节流，再用对象流包装后，直接输出对象<br>直接将Object写入或读出<br>把对象序列化成一个字节流，要实现序列化接口。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">FileOutputStream fos = new FileOutputStream (file);</div><div class="line">ObjectOutputStream oos = new ObjectOutputStream (fos );</div><div class="line">Student stu = new Student(&quot;值1&quot;,&quot;值2&quot;);//实现Serializable接口</div><div class="line">oos.writeObject(stu);</div><div class="line">oos.flush();</div><div class="line">oos.close();</div><div class="line">反序列化</div><div class="line">FileInputStream fis = new FileInputStream (file);</div><div class="line">ObjectInputStream ois = new ObjectInputStream (fos );</div><div class="line">Student stu = (Student)ois.readObject();//实现Serializable接口</div><div class="line">ois.close();</div></pre></td></tr></table></figure>
-<p>IO总结<br><img src="/img/random.jpg" alt="alt text" title="Title"></p>
-<p>例子<br><img src="/img/random.jpg" alt="alt text" title="Title"></p>
-<p>特例<br><img src="/img/random.jpg" alt="alt text" title="Title"></p>
+<p>IO总结<br><img src="/img/zongjie.jpg" alt="alt 总结" title="总结"></p>
+<p>例子<br><img src="/img/demo.jpg" alt="alt 例子" title="例子"></p>
+<p>特例<br><img src="/img/random.jpg" alt="alt 特例" title="特例"></p>
 
       
       
@@ -401,7 +401,7 @@
         <p><span>本文标题:</span><a href="/2017/05/16/IO/">IO</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 宋丽妹 的个人博客">宋丽妹</a></p>
         <p><span>发布时间:</span>2017年05月16日 - 22时52分</p>
-        <p><span>最后更新:</span>2017年05月17日 - 11时27分</p>
+        <p><span>最后更新:</span>2017年05月17日 - 11时46分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/05/16/IO/" title="IO">http://dreammei.me/2017/05/16/IO/</a>
             <span class="copy-path" data-clipboard-text="原文: http://dreammei.me/2017/05/16/IO/　　作者: 宋丽妹" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -490,7 +490,7 @@
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/16/IO/">IO</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/11/Linux文件结构-1/">Linux文件结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/MyTest/">My Master</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission10/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission11/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission2/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission12/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission5/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission8/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission7/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission9/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission4/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission3/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission6/">Android运行时权限处理</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/16/IO/">IO</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/11/Linux文件结构-1/">Linux文件结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/07/MyTest/">My Master</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission10/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission11/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission12/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission9/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission3/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission4/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission5/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission7/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission6/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission8/">Android运行时权限处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/06/android-permission2/">Android运行时权限处理</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
