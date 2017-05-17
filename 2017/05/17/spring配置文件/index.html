@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Android运行时权限处理 | 宋丽妹的博客</title>
+  <title>spring配置文件 | 宋丽妹的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="运行时权限的处理运行时判断并让用户选择12345if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &amp;#123;	ActivityCompat.requestPermissi">
-<meta name="keywords" content="Android权限">
+  <meta name="description" content="spring配置文件头1234567&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot;	xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSche">
+<meta name="keywords" content="spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android运行时权限处理">
-<meta property="og:url" content="http://dreammei.me/2017/05/06/android-permission9/index.html">
+<meta property="og:title" content="spring配置文件">
+<meta property="og:url" content="http://dreammei.me/2017/05/17/spring配置文件/index.html">
 <meta property="og:site_name" content="宋丽妹的博客">
-<meta property="og:description" content="运行时权限的处理运行时判断并让用户选择12345if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &amp;#123;	ActivityCompat.requestPermissi">
-<meta property="og:updated_time" content="2017-05-07T05:37:14.810Z">
+<meta property="og:description" content="spring配置文件头1234567&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot;	xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSche">
+<meta property="og:updated_time" content="2017-05-17T11:39:12.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android运行时权限处理">
-<meta name="twitter:description" content="运行时权限的处理运行时判断并让用户选择12345if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &amp;#123;	ActivityCompat.requestPermissi">
+<meta name="twitter:title" content="spring配置文件">
+<meta name="twitter:description" content="spring配置文件头1234567&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;lt;beans xmlns=&amp;quot;http://www.springframework.org/schema/beans&amp;quot;	xmlns:xsi=&amp;quot;http://www.w3.org/2001/XMLSche">
   
     <link rel="alternative" href="/atom.xml" title="宋丽妹的博客" type="application/atom+xml">
   
@@ -233,11 +233,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-android-permission9" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-spring配置文件" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/06/android-permission9/" class="article-date">
-      <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
+      <a href="/2017/05/17/spring配置文件/" class="article-date">
+      <time datetime="2017-05-17T11:33:24.000Z" itemprop="datePublished">2017-05-17</time>
 </a>
     </div>
   
@@ -250,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Android运行时权限处理
+      spring配置文件
     </h1>
   
 
@@ -259,13 +259,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
+    <a class="article-category-link" href="/categories/java/">java</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android权限/">Android权限</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -275,10 +275,25 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h2 id="运行时权限的处理"><a href="#运行时权限的处理" class="headerlink" title="运行时权限的处理"></a>运行时权限的处理</h2><h3 id="运行时判断并让用户选择"><a href="#运行时判断并让用户选择" class="headerlink" title="运行时判断并让用户选择"></a>运行时判断并让用户选择</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ContextCompat.checkSelfPermission(MainActivity.<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">	ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>, <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;, <span class="number">1</span>);</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">	openAlbum();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="启动相册"><a href="#启动相册" class="headerlink" title="启动相册"></a>启动相册</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//选择照片</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">openAlbum</span><span class="params">()</span> </span>&#123;</div><div class="line">	Intent intent = <span class="keyword">new</span> Intent(<span class="string">"android.intent.action.GET_CONTENT"</span>);</div><div class="line">	intent.setType(<span class="string">"image/*"</span>);</div><div class="line">	startActivityForResult(intent, CHOOSE_PHOTO);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="权限请求结果"><a href="#权限请求结果" class="headerlink" title="权限请求结果"></a>权限请求结果</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRequestPermissionsResult</span><span class="params">(<span class="keyword">int</span> requestCode, @NonNull String[] permissions, @NonNull <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</div><div class="line">	<span class="keyword">switch</span> (requestCode)&#123;</div><div class="line">		<span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">			<span class="keyword">if</span> (grantResults.length &gt; <span class="number">0</span> &amp;&amp; grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED)&#123;</div><div class="line">				openAlbum();</div><div class="line">		&#125;<span class="keyword">else</span> &#123;</div><div class="line">			Toast.makeText(<span class="keyword">this</span>, <span class="string">"您已拒绝权限"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">		&#125;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">default</span>:</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h1 id="spring配置文件"><a href="#spring配置文件" class="headerlink" title="spring配置文件"></a>spring配置文件</h1><h6 id="头"><a href="#头" class="headerlink" title="头"></a>头</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">	xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</div><div class="line">	xsi:schemaLocation=&quot;</div><div class="line">	http://www.springframework.org/schema/beans </div><div class="line">	http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>bean标签把类加入spring容器</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 创建UserDao对象</div><div class="line">			1、构造方法实例化bean对象</div><div class="line">			2、bean对象作用域(默认为单例)：singleton(单例),修改作用域在标签内设置scope=&quot;prototype&quot; prototype(多例)</div><div class="line">			</div><div class="line">			bean（默认）对象生命周期：</div><div class="line">			1、配置文件加载时，实例化bean对象</div><div class="line">			2、调用init-method属性指定的方法完成初始化</div><div class="line">			3、当spring容器关闭时会先调用destory-method属性指定的方法完成资源回收，销毁对象</div><div class="line">	 --&gt;</div><div class="line">&lt;!-- 创建UserDao对象 相当于 UserDaoImplByMysql userDao = new UserDaoImplByMysql() --&gt;</div><div class="line">&lt;bean id=&quot;userDao&quot; class=&quot;com.spring01.dao.UserDaoImplByMysql&quot; init-method=&quot;init()&quot; destroy-method=&quot;destroy()&quot;  scope=&quot;prototype&quot;&gt;&lt;/bean&gt;</div></pre></td></tr></table></figure>
+<h6 id="如何关闭spring容器"><a href="#如何关闭spring容器" class="headerlink" title="如何关闭spring容器"></a>如何关闭spring容器</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</div><div class="line">		ac.close();</div></pre></td></tr></table></figure>
+<h6 id="多种注入方式"><a href="#多种注入方式" class="headerlink" title="多种注入方式"></a>多种注入方式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">    &lt;!-- 为UserService注入UserDao实现类：DI（依赖注入） --&gt;</div><div class="line">    &lt;bean id=&quot;userService&quot; class=&quot;com.spring01.service.UserServiceImpl&quot;&gt;</div><div class="line">                &lt;!--setter注入常用 --&gt;</div><div class="line">		&lt;property name=&quot;userDao&quot; ref=&quot;userDao&quot;&gt;&lt;/property&gt;</div><div class="line">		&lt;!-- 构造方法注入方式:index指构造方法的第一个参数 --&gt;</div><div class="line">		&lt;constructor-arg index=&quot;0&quot; ref=&quot;useDao&quot;&gt;&lt;/constructor-arg&gt;</div><div class="line">    &lt;/bean&gt;	</div><div class="line">&lt;!--p标签注入 p:属性名=ref--&gt;</div><div class="line">&lt;bean id=&quot;userService&quot; class=&quot;com.spring01.service.UserServiceImpl&quot; p:userDao=&quot;useDao&quot;&gt;</div></pre></td></tr></table></figure>
+<hr>
+<p>—————————————++++++++++———————————————-</p>
+<h5 id="创建普通java对象"><a href="#创建普通java对象" class="headerlink" title="创建普通java对象"></a>创建普通java对象</h5><h6 id="1、基本类型的数据"><a href="#1、基本类型的数据" class="headerlink" title="1、基本类型的数据"></a>1、基本类型的数据</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;!-- setter方法注入  EL表达式可计算可返回方法</div><div class="line">&lt;property name=&quot;salary&quot; value=&quot;#&#123;user1.getSalary()&#125;&quot;&gt;&lt;/property&gt;</div><div class="line">--&gt;</div><div class="line">	&lt;bean id=&quot;user1&quot; class=&quot;com.bdyc.model.User&quot;&gt;</div><div class="line">		&lt;property name=&quot;userId&quot; value=&quot;1&quot;&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=&quot;username&quot; value=&quot;zhagnsan&quot;&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=&quot;password&quot; value=&quot;1233545&quot;&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=&quot;age&quot; value=&quot;23&quot;&gt;&lt;/property&gt;</div><div class="line">		&lt;property name=&quot;salary&quot; value=&quot;#&#123;5000*12&#125;&quot;&gt;&lt;/property&gt;</div><div class="line">	&lt;/bean&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 构造方法注入（了解） --&gt;</div><div class="line">	&lt;bean id=&quot;user2&quot; class=&quot;com.bdyc.model.User&quot;&gt;</div><div class="line">		&lt;constructor-arg index=&quot;0&quot; type=&quot;java.lang.Integer&quot; value=&quot;2&quot;&gt;&lt;/constructor-arg&gt;</div><div class="line">		&lt;constructor-arg index=&quot;1&quot; type=&quot;java.lang.String&quot; value=&quot;wangwu&quot;&gt;&lt;/constructor-arg&gt;</div><div class="line">		&lt;constructor-arg index=&quot;2&quot; type=&quot;java.lang.String&quot; value=&quot;123123&quot;&gt;&lt;/constructor-arg&gt;	</div><div class="line">	&lt;/bean&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;!-- p：注入（了解）setter  --&gt;</div><div class="line">	&lt;bean id=&quot;user3&quot; class=&quot;com.bdyc.model.User&quot;</div><div class="line">		p:userId=&quot;3&quot; p:username=&quot;lsi&quot; p:password=&quot;232434&quot;&gt;</div><div class="line">	&lt;/bean&gt;</div></pre></td></tr></table></figure>
+<h6 id="2、复合类型的数据"><a href="#2、复合类型的数据" class="headerlink" title="2、复合类型的数据"></a>2、复合类型的数据</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">      &lt;!-- 数组 --&gt;</div><div class="line">&lt;property name=&quot;favs&quot;&gt;</div><div class="line">	&lt;array&gt;</div><div class="line">		&lt;value&gt;lol&lt;/value&gt;</div><div class="line">		&lt;value&gt;lol1&lt;/value&gt;</div><div class="line">	&lt;/array&gt;</div><div class="line">&lt;/property&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;!-- List --&gt;</div><div class="line">		&lt;property name=&quot;lists&quot;&gt;</div><div class="line">			&lt;list&gt;</div><div class="line">				&lt;value&gt;fasdf&lt;/value&gt;</div><div class="line">				&lt;value&gt;fasdf&lt;/value&gt;</div><div class="line">			&lt;/list&gt;</div><div class="line">		&lt;/property&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Set --&gt;</div><div class="line">		&lt;property name=&quot;sets&quot;&gt;</div><div class="line">			&lt;set&gt;</div><div class="line">				&lt;value&gt;fasdf&lt;/value&gt;</div><div class="line">				&lt;value&gt;fasdf&lt;/value&gt;</div><div class="line">			&lt;/set&gt;</div><div class="line">		&lt;/property&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Map --&gt;</div><div class="line">		&lt;property name=&quot;maps&quot;&gt;</div><div class="line">			&lt;map&gt;</div><div class="line">				&lt;!-- &lt;entry&gt;</div><div class="line">					&lt;key&gt;</div><div class="line">						&lt;value&gt;m1&lt;/value&gt;</div><div class="line">					&lt;/key&gt;</div><div class="line">					&lt;value&gt;v1&lt;/value&gt;</div><div class="line">				&lt;/entry&gt; --&gt;</div><div class="line">				&lt;entry key=&quot;m1&quot; value=&quot;v1&quot;&gt;&lt;/entry&gt;</div><div class="line">				&lt;entry key=&quot;m2&quot; value=&quot;v1&quot;&gt;&lt;/entry&gt;</div><div class="line">			&lt;/map&gt;</div><div class="line">		&lt;/property&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;!-- properties --&gt;</div><div class="line">		&lt;property name=&quot;prop&quot;&gt;</div><div class="line">			&lt;props&gt;</div><div class="line">				&lt;prop key=&quot;p1&quot;&gt;fasdfa&lt;/prop&gt;</div><div class="line">				&lt;prop key=&quot;p2&quot;&gt;fasdfa&lt;/prop&gt;</div><div class="line">			&lt;/props&gt;</div><div class="line">		&lt;/property&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+
       
       
         <div class="page-reward">
@@ -332,13 +347,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2017/05/06/android-permission9/">Android运行时权限处理</a></p>
+        <p><span>本文标题:</span><a href="/2017/05/17/spring配置文件/">spring配置文件</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 宋丽妹 的个人博客">宋丽妹</a></p>
-        <p><span>发布时间:</span>2017年05月06日 - 17时20分</p>
-        <p><span>最后更新:</span>2017年05月07日 - 13时37分</p>
+        <p><span>发布时间:</span>2017年05月17日 - 19时33分</p>
+        <p><span>最后更新:</span>2017年05月17日 - 19时39分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2017/05/06/android-permission9/" title="Android运行时权限处理">http://dreammei.me/2017/05/06/android-permission9/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://dreammei.me/2017/05/06/android-permission9/　　作者: 宋丽妹" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2017/05/17/spring配置文件/" title="spring配置文件">http://dreammei.me/2017/05/17/spring配置文件/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://dreammei.me/2017/05/17/spring配置文件/　　作者: 宋丽妹" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -351,18 +366,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/05/06/android-permission6/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Android运行时权限处理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/05/06/android-permission8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Android运行时权限处理</div>
+    <a href="/2017/05/16/IO/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">IO</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -373,7 +379,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行时权限的处理"><span class="toc-number">1.</span> <span class="toc-text">运行时权限的处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#运行时判断并让用户选择"><span class="toc-number">1.1.</span> <span class="toc-text">运行时判断并让用户选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动相册"><span class="toc-number">1.2.</span> <span class="toc-text">启动相册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#权限请求结果"><span class="toc-number">1.3.</span> <span class="toc-text">权限请求结果</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#spring配置文件"><span class="toc-number">1.</span> <span class="toc-text">spring配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#头"><span class="toc-number">1.0.0.0.0.1.</span> <span class="toc-text">头</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#如何关闭spring容器"><span class="toc-number">1.0.0.0.0.2.</span> <span class="toc-text">如何关闭spring容器</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#多种注入方式"><span class="toc-number">1.0.0.0.0.3.</span> <span class="toc-text">多种注入方式</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#创建普通java对象"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">创建普通java对象</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、基本类型的数据"><span class="toc-number">1.0.0.0.1.1.</span> <span class="toc-text">1、基本类型的数据</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、复合类型的数据"><span class="toc-number">1.0.0.0.1.2.</span> <span class="toc-text">2、复合类型的数据</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -424,13 +430,11 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/05/06/android-permission6/" title="上一篇: Android运行时权限处理">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2017/05/06/android-permission8/" title="下一篇: Android运行时权限处理">
+            <a href="/2017/05/16/IO/" title="下一篇: IO">
                 <i class="fa fa-angle-right"></i>
             </a>
         
