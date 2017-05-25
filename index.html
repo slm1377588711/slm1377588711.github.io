@@ -152,7 +152,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Android权限/" style="font-size: 20px;">Android权限</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/master/" style="font-size: 10px;">master</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a>
+                        <a href="/tags/Android权限/" style="font-size: 20px;">Android权限</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/master/" style="font-size: 10px;">master</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,76 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-单例" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/25/单例/" class="article-date">
+      <time datetime="2017-05-25T09:46:35.000Z" itemprop="datePublished">2017-05-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/25/单例/">单例</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h1><p>自始至终保证一个对象被创建</p>
+<ol>
+<li>构造方法私有化</li>
+<li>提供共有静态成员方法实例化对象</li>
+<li>私有静态本类类型的变量<h3 id="懒汉式-后创建对象"><a href="#懒汉式-后创建对象" class="headerlink" title="懒汉式(后创建对象)"></a>懒汉式(后创建对象)</h3></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">public class User</div><div class="line">&#123;</div><div class="line">//私有静态本类类型的变量</div><div class="line">private static User user;</div><div class="line">//构造方法私有化</div><div class="line">private User()&#123;&#125;</div><div class="line">//共有静态成员方法实例化对象</div><div class="line">public static User newInstance()&#123;</div><div class="line">if(user==null)&#123;</div><div class="line"> user = new User();</div><div class="line">&#125;</div><div class="line">return user;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="饿汉式-先创建对象"><a href="#饿汉式-先创建对象" class="headerlink" title="饿汉式(先创建对象)"></a>饿汉式(先创建对象)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public class User</div><div class="line">&#123;</div><div class="line">//私有静态本类类型的变量</div><div class="line">private static User user = new User();</div><div class="line">//构造方法私有化</div><div class="line">private User()&#123;&#125;</div><div class="line">//共有静态成员方法实例化对象</div><div class="line">public static User newInstance()&#123;</div><div class="line">return user;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例设计模式/">单例设计模式</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-jsp九大内置对象" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -917,10 +987,10 @@
 
 
   
-    <article id="post-android-permission11" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-android-permission8" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/06/android-permission11/" class="article-date">
+      <a href="/2017/05/06/android-permission8/" class="article-date">
       <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
 </a>
     </div>
@@ -934,7 +1004,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/android-permission11/">Android运行时权限处理</a>
+      <a class="article-title" href="/2017/05/06/android-permission8/">Android运行时权限处理</a>
     </h1>
   
 
@@ -965,7 +1035,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/05/06/android-permission11/#more">去看看 >></a>
+          <a  href="/2017/05/06/android-permission8/#more">去看看 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -984,10 +1054,10 @@
 
 
   
-    <article id="post-android-permission5" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-android-permission4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/06/android-permission5/" class="article-date">
+      <a href="/2017/05/06/android-permission4/" class="article-date">
       <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
 </a>
     </div>
@@ -1001,7 +1071,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/android-permission5/">Android运行时权限处理</a>
+      <a class="article-title" href="/2017/05/06/android-permission4/">Android运行时权限处理</a>
     </h1>
   
 
@@ -1032,74 +1102,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/05/06/android-permission5/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-android-permission2" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/05/06/android-permission2/" class="article-date">
-      <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/android-permission2/">Android运行时权限处理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="运行时权限的处理"><a href="#运行时权限的处理" class="headerlink" title="运行时权限的处理"></a>运行时权限的处理</h2><h3 id="运行时判断并让用户选择"><a href="#运行时判断并让用户选择" class="headerlink" title="运行时判断并让用户选择"></a>运行时判断并让用户选择</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ContextCompat.checkSelfPermission(MainActivity.<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">	ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>, <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;, <span class="number">1</span>);</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">	openAlbum();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android权限/">Android权限</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/05/06/android-permission2/#more">去看看 >></a>
+          <a  href="/2017/05/06/android-permission4/#more">去看看 >></a>
         </p>
       
       <div class="clearfix"></div>
