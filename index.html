@@ -152,7 +152,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Android权限/" style="font-size: 20px;">Android权限</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/master/" style="font-size: 10px;">master</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a>
+                        <a href="/tags/Android权限/" style="font-size: 20px;">Android权限</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/master/" style="font-size: 10px;">master</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a>
                     </div>
                 </section>
                 
@@ -235,6 +235,123 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-jsp九大内置对象" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/25/jsp九大内置对象/" class="article-date">
+      <time datetime="2017-05-25T09:16:03.000Z" itemprop="datePublished">2017-05-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/25/jsp九大内置对象/">jsp九大内置对象</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="jsp九大内置对象"><a href="#jsp九大内置对象" class="headerlink" title="jsp九大内置对象"></a>jsp九大内置对象</h1><h6 id="1、request-一次请求有效（地址栏不变）"><a href="#1、request-一次请求有效（地址栏不变）" class="headerlink" title="1、request 一次请求有效（地址栏不变）"></a>1、request 一次请求有效（地址栏不变）</h6><blockquote>
+<pre><code>类型：javax.servlet.http.HttpServletRequest
+作用域： request  一次请求（浏览器地址栏只要不变）
+常用方法：
+</code></pre><ol>
+<li>request.getParameter(name):接受页面一个参数值</li>
+<li>request.getParameterValues(name):接受页面一组参数值（checkbox select）</li>
+<li>reqeust.getRequestDispatcher(path).forward(request,response):将页面”转发”到目标地址</li>
+<li>request.setAttribute(name,value):向request作用域中添加额外属性</li>
+<li>request.getAttribute(name):从request作用域中获取指定属性值</li>
+<li>request.setCharacterEncoding(“utf-8”):设置请求编码，解决POST请求中文乱码问题</li>
+</ol>
+</blockquote>
+<h6 id="2、response"><a href="#2、response" class="headerlink" title="2、response"></a>2、response</h6><h6 id="3、session-一次会话有效（浏览器关闭）"><a href="#3、session-一次会话有效（浏览器关闭）" class="headerlink" title="3、session    一次会话有效（浏览器关闭）"></a>3、session    一次会话有效（浏览器关闭）</h6><blockquote>
+<p>常用方法：</p>
+<ol>
+<li>session.getId():获取sessionId</li>
+<li>session.isNew();判断session是否是新建的</li>
+<li>session.setAttribute(key,value):向session作用域对象中添加属性值</li>
+<li>session.getAttribute(key):从session作用域中获取值</li>
+<li>session.removeAttribute(key):从session作用域中删除某个属性值</li>
+<li>session.setMaxInactiveInteaval();设置session的最大失效时间，默认30分钟 20分钟=60<em>1000</em>20</li>
+<li>session.invalidate();销毁session（手动终止会话方式）；</li>
+</ol>
+</blockquote>
+<h6 id="4、application-一次服务关闭-只要服务器不关闭，它就一直存在"><a href="#4、application-一次服务关闭-只要服务器不关闭，它就一直存在" class="headerlink" title="4、application 一次服务关闭(只要服务器不关闭，它就一直存在)"></a>4、application 一次服务关闭(只要服务器不关闭，它就一直存在)</h6><blockquote>
+<p>常用方法：</p>
+<ol>
+<li>application.setAttribute(key,value);</li>
+<li>application.getAttribute(key);</li>
+</ol>
+</blockquote>
+<h6 id="5、page-当前页面有效"><a href="#5、page-当前页面有效" class="headerlink" title="5、page    当前页面有效"></a>5、page    当前页面有效</h6><h6 id="6、pageConrext-当前页面有效"><a href="#6、pageConrext-当前页面有效" class="headerlink" title="6、pageConrext 当前页面有效"></a>6、pageConrext 当前页面有效</h6><blockquote>
+<p>常用方法：</p>
+<ol>
+<li>pageContext.getRequest();</li>
+<li>pageContext.getResponse();<br>  …</li>
+<li>pageContext.setAttribute(key,value);</li>
+<li>pageContext.getAttribute(key);</li>
+</ol>
+</blockquote>
+<h6 id="7、config-当前页面有效"><a href="#7、config-当前页面有效" class="headerlink" title="7、config 当前页面有效"></a>7、config 当前页面有效</h6><blockquote>
+<p>常用方法：</p>
+<ol>
+<li>config.getInitParameter(name);</li>
+<li>config.getInitParameterValues();</li>
+</ol>
+</blockquote>
+<h6 id="8、exception-当前页面有效"><a href="#8、exception-当前页面有效" class="headerlink" title="8、exception 当前页面有效"></a>8、exception 当前页面有效</h6><blockquote>
+<p>常用方法：</p>
+<ol>
+<li>exceptin.getMessage();//获取异常信息</li>
+<li>exception.printStackTrace();//打印异常堆栈信息</li>
+</ol>
+</blockquote>
+<h6 id="9、out"><a href="#9、out" class="headerlink" title="9、out"></a>9、out</h6>
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsp/">jsp</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-this关键字" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -410,7 +527,7 @@
 <blockquote>
 <p>bean标签把类加入spring容器</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 创建UserDao对象</div><div class="line">			1、构造方法实例化bean对象</div><div class="line">			2、bean对象作用域(默认为单例)：singleton(单例),修改作用域在标签内设置scope=&quot;prototype&quot; prototype(多例)</div><div class="line">			</div><div class="line">			bean（默认）对象生命周期：</div><div class="line">			1、配置文件加载时，实例化bean对象</div><div class="line">			2、调用init-method属性指定的方法完成初始化</div><div class="line">			3、当spring容器关闭时会先调用destory-method属性指定的方法完成资源回收，销毁对象</div><div class="line">	 --&gt;</div><div class="line">&lt;!-- 创建UserDao对象 相当于 UserDaoImplByMysql userDao = new UserDaoImplByMysql() --&gt;</div><div class="line">&lt;bean id=&quot;userDao&quot; class=&quot;com.spring01.dao.UserDaoImplByMysql&quot; init-method=&quot;init()&quot; destroy-method=&quot;destroy()&quot;  scope=&quot;prototype&quot;&gt;&lt;/bean&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!-- 创建UserDao对象</div><div class="line">			1、构造方法实例化bean对象</div><div class="line">			2、bean对象作用域(默认为单例)：singleton(单例),修改作用域在标签内设置scope=&quot;prototype&quot; prototype(多例)</div><div class="line">			</div><div class="line">			bean（默认）对象生命周期：</div><div class="line">			1、配置文件加载时，实例化bean对象</div><div class="line">			2、调用init-method属性指定的方法完成初始化</div><div class="line">			3、当spring容器关闭时会先调用destory-method属性指定的方法完成资源回收，销毁对象</div><div class="line">	 --&gt;</div><div class="line">&lt;!-- 创建UserDao对象 相当于 UserDaoImplByMysql userDao = new UserDaoImplByMysql() --&gt;</div><div class="line">&lt;bean id=&quot;userDao&quot; class=&quot;com.spring01.dao.UserDaoImplByMysql&quot; init-method=&quot;init&quot; destroy-method=&quot;destroy&quot;  scope=&quot;prototype&quot;&gt;&lt;/bean&gt;</div></pre></td></tr></table></figure>
 <h6 id="如何关闭spring容器"><a href="#如何关闭spring容器" class="headerlink" title="如何关闭spring容器"></a>如何关闭spring容器</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</div><div class="line">		ac.close();</div></pre></td></tr></table></figure>
 <h6 id="多种注入方式"><a href="#多种注入方式" class="headerlink" title="多种注入方式"></a>多种注入方式</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">    &lt;!-- 为UserService注入UserDao实现类：DI（依赖注入） --&gt;</div><div class="line">    &lt;bean id=&quot;userService&quot; class=&quot;com.spring01.service.UserServiceImpl&quot;&gt;</div><div class="line">                &lt;!--setter注入常用 --&gt;</div><div class="line">		&lt;property name=&quot;userDao&quot; ref=&quot;userDao&quot;&gt;&lt;/property&gt;</div><div class="line">		&lt;!-- 构造方法注入方式:index指构造方法的第一个参数 --&gt;</div><div class="line">		&lt;constructor-arg index=&quot;0&quot; ref=&quot;useDao&quot;&gt;&lt;/constructor-arg&gt;</div><div class="line">    &lt;/bean&gt;	</div><div class="line">&lt;!--p标签注入 p:属性名=ref--&gt;</div><div class="line">&lt;bean id=&quot;userService&quot; class=&quot;com.spring01.service.UserServiceImpl&quot; p:userDao=&quot;useDao&quot;&gt;</div></pre></td></tr></table></figure>
 <hr>
@@ -800,10 +917,10 @@
 
 
   
-    <article id="post-android-permission6" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-android-permission11" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/05/06/android-permission6/" class="article-date">
+      <a href="/2017/05/06/android-permission11/" class="article-date">
       <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
 </a>
     </div>
@@ -817,7 +934,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/android-permission6/">Android运行时权限处理</a>
+      <a class="article-title" href="/2017/05/06/android-permission11/">Android运行时权限处理</a>
     </h1>
   
 
@@ -848,7 +965,74 @@
 
       
         <p class="article-more-link">
-          <a  href="/2017/05/06/android-permission6/#more">去看看 >></a>
+          <a  href="/2017/05/06/android-permission11/#more">去看看 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-android-permission5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/05/06/android-permission5/" class="article-date">
+      <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/06/android-permission5/">Android运行时权限处理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="运行时权限的处理"><a href="#运行时权限的处理" class="headerlink" title="运行时权限的处理"></a>运行时权限的处理</h2><h3 id="运行时判断并让用户选择"><a href="#运行时判断并让用户选择" class="headerlink" title="运行时判断并让用户选择"></a>运行时判断并让用户选择</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ContextCompat.checkSelfPermission(MainActivity.<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">	ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>, <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;, <span class="number">1</span>);</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">	openAlbum();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android权限/">Android权限</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/05/06/android-permission5/#more">去看看 >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -916,140 +1100,6 @@
       
         <p class="article-more-link">
           <a  href="/2017/05/06/android-permission2/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-android-permission3" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/05/06/android-permission3/" class="article-date">
-      <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/android-permission3/">Android运行时权限处理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="运行时权限的处理"><a href="#运行时权限的处理" class="headerlink" title="运行时权限的处理"></a>运行时权限的处理</h2><h3 id="运行时判断并让用户选择"><a href="#运行时判断并让用户选择" class="headerlink" title="运行时判断并让用户选择"></a>运行时判断并让用户选择</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ContextCompat.checkSelfPermission(MainActivity.<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">	ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>, <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;, <span class="number">1</span>);</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">	openAlbum();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android权限/">Android权限</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/05/06/android-permission3/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-android-permission10" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/05/06/android-permission10/" class="article-date">
-      <time datetime="2017-05-06T09:20:53.000Z" itemprop="datePublished">2017-05-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/06/android-permission10/">Android运行时权限处理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="运行时权限的处理"><a href="#运行时权限的处理" class="headerlink" title="运行时权限的处理"></a>运行时权限的处理</h2><h3 id="运行时判断并让用户选择"><a href="#运行时判断并让用户选择" class="headerlink" title="运行时判断并让用户选择"></a>运行时判断并让用户选择</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (ContextCompat.checkSelfPermission(MainActivity.<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">	ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>, <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;, <span class="number">1</span>);</div><div class="line">&#125;<span class="keyword">else</span> &#123;</div><div class="line">	openAlbum();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android权限/">Android权限</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/05/06/android-permission10/#more">去看看 >></a>
         </p>
       
       <div class="clearfix"></div>
