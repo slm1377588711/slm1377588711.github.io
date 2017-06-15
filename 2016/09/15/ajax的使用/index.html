@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>工具导航 | 宋丽妹的博客</title>
+  <title>ajax的使用 | 宋丽妹的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="暂时不想写">
-<meta property="og:type" content="website">
-<meta property="og:title" content="工具导航">
-<meta property="og:url" content="http://dreammei.me/toolGuide/index.html">
+  <meta name="description" content="ajax的使用:load()方法是局部方法需要一个包含元素的jQuery对象作为前缀三个参数  url(请求html文件的URL地址,类型为String), data(可选,发送的key/value数据,类型为Object), callback(可选,成功或失败的回调函数,类型为函数Function)">
+<meta name="keywords" content="ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax的使用">
+<meta property="og:url" content="http://dreammei.me/2016/09/15/ajax的使用/index.html">
 <meta property="og:site_name" content="宋丽妹的博客">
-<meta property="og:description" content="暂时不想写">
-<meta property="og:updated_time" content="2017-06-14T13:23:48.089Z">
+<meta property="og:description" content="ajax的使用:load()方法是局部方法需要一个包含元素的jQuery对象作为前缀三个参数  url(请求html文件的URL地址,类型为String), data(可选,发送的key/value数据,类型为Object), callback(可选,成功或失败的回调函数,类型为函数Function)">
+<meta property="og:updated_time" content="2017-06-15T10:22:33.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="工具导航">
-<meta name="twitter:description" content="暂时不想写">
+<meta name="twitter:title" content="ajax的使用">
+<meta name="twitter:description" content="ajax的使用:load()方法是局部方法需要一个包含元素的jQuery对象作为前缀三个参数  url(请求html文件的URL地址,类型为String), data(可选,发送的key/value数据,类型为Object), callback(可选,成功或失败的回调函数,类型为函数Function)">
   
     <link rel="alternative" href="/atom.xml" title="宋丽妹的博客" type="application/atom+xml">
   
@@ -40,7 +41,7 @@
           fancybox: true,
           animate: true,
           isHome: false,
-          isPost: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -232,11 +233,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ajax的使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/toolGuide/index.html" class="article-date">
-      <time datetime="2017-06-14T13:21:40.000Z" itemprop="datePublished">2017-06-14</time>
+      <a href="/2016/09/15/ajax的使用/" class="article-date">
+      <time datetime="2016-09-15T10:18:18.000Z" itemprop="datePublished">2016-09-15</time>
 </a>
     </div>
   
@@ -249,7 +250,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      工具导航
+      ajax的使用
     </h1>
   
 
@@ -257,8 +258,16 @@
       
       <div class="article-info article-info-post">
         
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/web前端/">web前端</a>
+    </div>
+
 
         
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
+    </div>
+
         <div class="clearfix"></div>
       </div>
       
@@ -266,42 +275,31 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-              <style>
-    .article-meta {
-        display: none;
-    }
-    #container .article .article-title {
-        padding-right: 0;
-    }
-    .article-header {
-        padding: 0;
-        padding-top: 26px;
-        border-left: none;
-        text-align: center;
-    }
-    .article-header:hover {
-        border-left: none;
-    }
-    .article-title {
-        font-size: 1.6em
-    }
-    .article-meta {
-        display: none;
-    }
-    .article-entry hr {
-        margin: 0;
-    }
-    #container .article-info-post.article-info {
-      display: none;
-      }
-    #container .article .article-title {
-    padding: 0;
-    }
-</style>
+        <h1 id="ajax的使用"><a href="#ajax的使用" class="headerlink" title="ajax的使用:"></a>ajax的使用:</h1><h6 id="load-方法"><a href="#load-方法" class="headerlink" title="load()方法"></a>load()方法</h6><p>是局部方法需要一个包含元素的jQuery对象作为前缀<br>三个参数</p>
+<ul>
+<li>url(请求html文件的URL地址,类型为String),</li>
+<li>data(可选,发送的key/value数据,类型为Object),</li>
+<li>callback(可选,成功或失败的回调函数,类型为函数Function)</li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>(第一个参数)载入一段html内容<br>$(“#box”).load(“test.html”);<br>对html文件过滤,在URL后跟了选择器<br>$(“#box”).load(“test.html.my”);<br>(第二个参数,如果写上说明是post请求,如果不写为get)<br>$(“#box”).load(“userServlet?name=zhangsan”)<br>$(“#box”).load(“userServlet”,{name:’zhangsan’});<br>(第三个参数)<br>$(“#box”).load(“userServlet”,<br>          {name:’zhangsan’},<br>function(response,status,xhr){<br>alert(‘返回的值是:’+response+’,状态是:’+status+’http状态的说明’+xhr.statusText);<br>});</p>
+<h6 id="get-方法"><a href="#get-方法" class="headerlink" title="get()方法"></a>get()方法</h6><p>四个参数 比load多了一个type<br>就是服务器返回的内容格式:<br>xml/html/script/json/jsonp/text<br>一般情况下type 参数是智能判断，并不<br>需要我们主动设置，如果主动设置，则会强行按照指定类型格式返回。果主动设置，则会强行按照指定类型格式返回。</p>
+<h6 id="get-和-post-区别"><a href="#get-和-post-区别" class="headerlink" title="$.get()和$.post()区别"></a>$.get()和$.post()区别</h6><ul>
+<li>GET 请求是通过URL 提交的，而POST 请求则是HTTP 消息实体提交的；</li>
+<li>GET 提交有大小限制（2KB），而POST 方式不受限制；</li>
+<li>GET 方式会被缓存下来，可能有安全性问题，而POST 没有这个问题；</li>
+<li>GET 方式通过doGet()获取，POST 方式通过doPost()获取。</li>
+</ul>
+</blockquote>
+<h6 id="getScript-和-getJSON"><a href="#getScript-和-getJSON" class="headerlink" title="$.getScript()和$.getJSON()"></a>$.getScript()和$.getJSON()</h6><p>$.ajax()只有一个参数,用于各个功能的键值对</p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;</div><div class="line">url:&quot;&quot;,</div><div class="line">type:&quot;&quot;,</div><div class="line">timeout,</div><div class="line">data:&#123;&#125;,发送到服务器的对象</div><div class="line">datatype:&quot;&quot;,返回的数据类型</div><div class="line">beforeSend:function,发送请求前可修改XMLHttpRequest对象的函数</div><div class="line">complete,请求完成后调用的回调函数</div><div class="line">success,请求成功后返回的回调函数</div><div class="line">error,请求失败时返回的回调函数</div><div class="line">global,boolean 默认为true,表示是否触发全局Ajax</div><div class="line">cache,设置浏览器缓存响应,默认为true,如果dataType类型为script或者jsonp则为false</div><div class="line">content,指定某个元素为这个请求相关的所有回调函数的上下文</div><div class="line">contentType,指定请求内容的类型.默认为application/x-www-form-urlencoded</div><div class="line">async,是否异步处理,默认为true,false为同步处理</div><div class="line">processData,默认为true,数据被处理为URL编码格式.如果为false,则阻止将传入的数据处理为URL编码的格式</div><div class="line">dataFilter,用来筛选响应数据的回调函数</div><div class="line">ifModified,默认为false,不进行头检测,如果为true,进行头检测,当相应内容与上次请求改变是,请求认为是成功的</div><div class="line">jsonp,指定一个查询参数名来覆盖默认的jsonp回调参数名callback</div><div class="line">username,在Http认证请求中使用的用户名</div><div class="line">password,在HTTP认证中请求中使用的密码</div><div class="line">scriptCharset,当远程和本地内容使用不同的字符集是,用来设置script和jsonp请求所使用的字符集</div><div class="line">xhr,用来提供XHR实例自定义实现的回调函数</div><div class="line">traditional,默认为false,不使用传统风格的参数序列化,如果为true则使用</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<hr>
+<blockquote>
+<p>表单序列化.serialize()<br>.serializeArray()把数据整合成键值对的JSON对象</p>
+</blockquote>
 
-
-          
-        
       
       
         <div class="page-reward">
@@ -354,10 +352,76 @@
   </div>
   
     
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/09/15/ajax的使用/">ajax的使用</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 宋丽妹 的个人博客">宋丽妹</a></p>
+        <p><span>发布时间:</span>2016年09月15日 - 18时18分</p>
+        <p><span>最后更新:</span>2017年06月15日 - 18时22分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/09/15/ajax的使用/" title="ajax的使用">http://dreammei.me/2016/09/15/ajax的使用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://dreammei.me/2016/09/15/ajax的使用/　　作者: 宋丽妹" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
 
+
+
+<nav id="article-nav">
+  
+    <a href="/2016/11/11/Linux文件结构-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Linux文件结构
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/17/spring配置文件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring配置文件</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
 
   
 </article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ajax的使用"><span class="toc-number">1.</span> <span class="toc-text">ajax的使用:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#load-方法"><span class="toc-number">1.0.0.0.0.1.</span> <span class="toc-text">load()方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#get-方法"><span class="toc-number">1.0.0.0.0.2.</span> <span class="toc-text">get()方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#get-和-post-区别"><span class="toc-number">1.0.0.0.0.3.</span> <span class="toc-text">$.get()和$.post()区别</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#getScript-和-getJSON"><span class="toc-number">1.0.0.0.0.4.</span> <span class="toc-text">$.getScript()和$.getJSON()</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
 
 
 
@@ -378,6 +442,39 @@
     
 
 
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/11/11/Linux文件结构-1/" title="上一篇: Linux文件结构">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2016/05/17/spring配置文件/" title="下一篇: spring配置文件">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/11/Linux文件结构-1/">Linux文件结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/ajax的使用/">ajax的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/spring配置文件/">spring配置文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/单例/">单例</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/02/20/equals和/">equals和==</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/28/IO/">IO</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/25/jsp九大内置对象/">jsp九大内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/09/30/this关键字/">this关键字</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
 
 
 
