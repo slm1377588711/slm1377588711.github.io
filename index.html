@@ -152,7 +152,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a>
+                        <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a>
                     </div>
                 </section>
                 
@@ -504,6 +504,82 @@
         <p class="article-more-link">
           <a  href="/2016/04/25/单例/#more">去看看 >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-序列化" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/25/序列化/" class="article-date">
+      <time datetime="2016-04-25T03:48:35.000Z" itemprop="datePublished">2016-04-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/25/序列化/">序列化</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h1><h6 id="1-准备一个实体类"><a href="#1-准备一个实体类" class="headerlink" title="1.准备一个实体类"></a>1.准备一个实体类</h6><pre><code>Student 实现序列化接口
+</code></pre><hr>
+<h6 id="2-创建一个ObjectOutputStream的对象，"><a href="#2-创建一个ObjectOutputStream的对象，" class="headerlink" title="2.创建一个ObjectOutputStream的对象，"></a>2.创建一个ObjectOutputStream的对象，</h6><hr>
+<p>用FileOutputStream的对象作为参数，<br>        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(“文件路径/file对象”));</p>
+<h6 id="3-创建Student对象，并给其属性赋值"><a href="#3-创建Student对象，并给其属性赋值" class="headerlink" title="3.创建Student对象，并给其属性赋值"></a>3.创建Student对象，并给其属性赋值</h6><hr>
+<pre><code>Student stu = new Student(&quot;&quot;,&quot;&quot;,&quot;&quot;);
+</code></pre><h6 id="4-用oos的writeObject方法写入Student对象"><a href="#4-用oos的writeObject方法写入Student对象" class="headerlink" title="4.用oos的writeObject方法写入Student对象"></a>4.用oos的writeObject方法写入Student对象</h6><hr>
+<pre><code>oos.writeObject(stu);
+</code></pre><h6 id="5-关闭流对象"><a href="#5-关闭流对象" class="headerlink" title="5.关闭流对象"></a>5.关闭流对象</h6><h1 id="反序列化"><a href="#反序列化" class="headerlink" title="反序列化"></a>反序列化</h1><h6 id="1-创建一个ObjectInputStream的对象，"><a href="#1-创建一个ObjectInputStream的对象，" class="headerlink" title="1.创建一个ObjectInputStream的对象，"></a>1.创建一个ObjectInputStream的对象，</h6><hr>
+<p>用FileInputStream的对象作为参数，<br>        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(“文件路径/file对象”));</p>
+<h6 id="2-用ois的readObject方法读取，并且强制转换为实体类类型"><a href="#2-用ois的readObject方法读取，并且强制转换为实体类类型" class="headerlink" title="2.用ois的readObject方法读取，并且强制转换为实体类类型"></a>2.用ois的readObject方法读取，并且强制转换为实体类类型</h6><hr>
+<pre><code>Student student = (Student)ois.readObject();
+</code></pre><h6 id="3-输出属性值"><a href="#3-输出属性值" class="headerlink" title="3.输出属性值"></a>3.输出属性值</h6><hr>
+<pre><code>System.out.println(student.getxxx());
+</code></pre><h6 id="4-关闭流对象"><a href="#4-关闭流对象" class="headerlink" title="4.关闭流对象"></a>4.关闭流对象</h6>
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/序列化/">序列化</a></li></ul>
+    </div>
+
       
       <div class="clearfix"></div>
     </div>
