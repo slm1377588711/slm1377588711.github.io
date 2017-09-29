@@ -107,6 +107,7 @@
                         
                         <li>关于我</li>
                         
+						
                     </ul>
                 </div>
             </div>
@@ -152,7 +153,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/HTML-CSS总结/" style="font-size: 10px;">HTML+CSS总结</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/Maven/" style="font-size: 20px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a>
+                        <a href="/tags/HTML-CSS总结/" style="font-size: 10px;">HTML+CSS总结</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/Maven/" style="font-size: 20px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a>
                     </div>
                 </section>
                 
@@ -235,6 +236,149 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-javascript继承" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/29/javascript继承/" class="article-date">
+      <time datetime="2017-09-29T07:20:21.000Z" itemprop="datePublished">2017-09-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/29/javascript继承/">javascript继承</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <ul>
+<li>1.原型链<blockquote>
+<p>定义两个类型：SuperType和SubType。每个类型分别有一个属性和一个方法。主要区别是SubType继承了SuperType，为继承是通过创建SuperType的实例，并将该实例赋给SubType.prototype实现的。实现的本质是重写原型对象，用一个新的类型的实例来代替。换句话说，原来存在于SuperType的实例中的所有属性和方法，现在也存在于SubType.prototype中了。在确立了继承关系后，给SubType.prototype添加了一个方法，这样，SubType即拥有SuperType的属性和方法也拥有自己的属性和方法</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function SuperType()&#123;</div><div class="line">this.property = true;</div><div class="line">&#125;</div><div class="line">SuperType.prototype.getSuperValue = function()</div><div class="line">&#123;</div><div class="line">return this.property;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/web前端/">web前端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/09/29/javascript继承/#more">去看看 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-javascript创建对象的7中模式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/01/javascript创建对象的7中模式/" class="article-date">
+      <time datetime="2017-09-01T09:28:17.000Z" itemprop="datePublished">2017-09-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/01/javascript创建对象的7中模式/">javascript创建对象的7中模式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h1 id="javascript创建对象的7种模式"><a href="#javascript创建对象的7种模式" class="headerlink" title="javascript创建对象的7种模式"></a>javascript创建对象的7种模式</h1><ol>
+<li>工厂模式</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">        function createPerson(name,age,job)&#123;</div><div class="line">            var o = new Object();</div><div class="line">            o.name = name;</div><div class="line">            o.age = age;</div><div class="line">            o.job = job;</div><div class="line">            o.sayName = function()&#123;</div><div class="line">                alert(this.name);</div><div class="line">            &#125;</div><div class="line">            return o;</div><div class="line">        &#125;</div><div class="line">        var person1 = createPerson(&quot;Nicholas&quot;,18,&quot;Software Engineer&quot;);</div><div class="line">        var person2 = createPerson(&quot;Greg&quot;,27,&quot;Doctor&quot;); </div><div class="line">    &lt;/script&gt;</div></pre></td></tr></table></figure>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/web前端/">web前端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/09/01/javascript创建对象的7中模式/#more">去看看 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Linux文件结构-1" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -772,142 +916,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/06/19/spring核心机制依赖注入/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-spring常用注解" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/06/19/spring常用注解/" class="article-date">
-      <time datetime="2016-06-19T04:01:14.000Z" itemprop="datePublished">2016-06-19</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/19/spring常用注解/">spring常用注解</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h5 id="需要导入两个包"><a href="#需要导入两个包" class="headerlink" title="需要导入两个包"></a>需要导入两个包</h5><blockquote>
-<p>spring-aop-4.2.2.RELEASE.jar<br>spring-test-4.2.2.RELEASE.jar</p>
-</blockquote>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java/">java</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/06/19/spring常用注解/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-spring配置文件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/17/spring配置文件/" class="article-date">
-      <time datetime="2016-05-17T11:33:24.000Z" itemprop="datePublished">2016-05-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/17/spring配置文件/">spring配置文件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="spring配置文件"><a href="#spring配置文件" class="headerlink" title="spring配置文件"></a>spring配置文件</h1><h6 id="头"><a href="#头" class="headerlink" title="头"></a>头</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">	xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">	xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</div><div class="line">	xsi:schemaLocation=&quot;</div><div class="line">	http://www.springframework.org/schema/beans </div><div class="line">	http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/java/">java</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/17/spring配置文件/#more">去看看 >></a>
         </p>
       
       <div class="clearfix"></div>
