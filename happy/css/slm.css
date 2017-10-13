@@ -61,12 +61,6 @@ ul {
 .Num{
     width:500px;
     height: 300px;
-    margin-top: -200px;
-}
-.Num > div{
-    font-family: "Microsoft YaHei", sans-serif;
-    font-size: 24px;
-    margin-top: 0px;
 }
 .Num > div > .day{
     font-weight: bold;
@@ -76,16 +70,11 @@ ul {
     -webkit-background-size: 200% 100%;
     -webkit-animation: masked-animation 4s infinite linear;
 }
-
-/*@-webkit-keyframes masked-animation {
-    0%{ background-position: 0 0;}
-    100% { background-position: -100% 0;}
-}*/
 .happy{
     margin: auto;
     width: 500px;
     height:100px;
-    margin-top: 270px;
+    margin-top: 250px;
     font-size: 26px;
     font-weight: bold;
     text-align: center;
@@ -95,4 +84,13 @@ ul {
     -webkit-background-size: 200% 100%;
     -webkit-animation: masked-animation 4s infinite linear;
     font-family:'Malapropismd710ec97c1a87d';
+}
+.birthday{
+    font-size: 40px;
+    font-family:'NaiYoud7209870f1a87d';
+    background-image: -webkit-linear-gradient(left, #147B96, #E6D205 25%, #147B96 50%, #E6D205 75%, #147B96);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size: 200% 100%;
+    -webkit-animation: masked-animation 4s infinite linear;
 }
