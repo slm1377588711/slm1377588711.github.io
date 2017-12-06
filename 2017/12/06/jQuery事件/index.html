@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jQuery事件 | 宋丽妹的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jQuery事件浏览器 error 报错时 resize 重置窗口大小时 scroll 元素滚动">
+<meta name="keywords" content="jQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery事件">
+<meta property="og:url" content="http://dreammei.me/2017/12/06/jQuery事件/index.html">
+<meta property="og:site_name" content="宋丽妹的博客">
+<meta property="og:description" content="jQuery事件浏览器 error 报错时 resize 重置窗口大小时 scroll 元素滚动">
+<meta property="og:updated_time" content="2017-12-06T11:03:14.270Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery事件">
+<meta name="twitter:description" content="jQuery事件浏览器 error 报错时 resize 重置窗口大小时 scroll 元素滚动">
+  
+    <link rel="alternative" href="/atom.xml" title="宋丽妹的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">宋丽妹</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">暂时不想写</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+						
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                            <li><a href="/toolGuide">工具导航</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="/" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/slm1377588711" title="github">github</a>
+                            
+                                <a class="fl zhihu" target="_blank" href="/" title="zhihu">zhihu</a>
+                            
+                                <a class="fl weibo" target="_blank" href="http://weibo.com/5285139683/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+                            
+                                <a class="fl google" target="_blank" href="/" title="google">google</a>
+                            
+                                <a class="fl twitter" target="_blank" href="/" title="twitter">twitter</a>
+                            
+                                <a class="fl linkedin" target="_blank" href="/" title="linkedin">linkedin</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/HTML-CSS总结/" style="font-size: 10px;">HTML+CSS总结</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/jQuery/" style="font-size: 20px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://belieflong.com">name</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">处于不好的环境中，总会预感，下一秒会有不一样的惊喜</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">宋丽妹</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">宋丽妹</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">暂时不想写</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                    <li><a href="/toolGuide">工具导航</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="/" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/slm1377588711" title="github">github</a>
+                    
+                        <a class="zhihu" target="_blank" href="/" title="zhihu">zhihu</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/5285139683/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" title="weibo">weibo</a>
+                    
+                        <a class="google" target="_blank" href="/" title="google">google</a>
+                    
+                        <a class="twitter" target="_blank" href="/" title="twitter">twitter</a>
+                    
+                        <a class="linkedin" target="_blank" href="/" title="linkedin">linkedin</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-jQuery事件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/06/jQuery事件/" class="article-date">
+      <time datetime="2017-12-06T10:53:03.000Z" itemprop="datePublished">2017-12-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jQuery事件
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/web前端/">web前端</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="jQuery事件"><a href="#jQuery事件" class="headerlink" title="jQuery事件"></a>jQuery事件</h1><h5 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h5><blockquote>
+<p>error 报错时</p>
+<p>resize 重置窗口大小时</p>
+<p>scroll 元素滚动</p>
+</blockquote>
+<a id="more"></a>
+<h5 id="文档加载："><a href="#文档加载：" class="headerlink" title="文档加载："></a>文档加载：</h5><blockquote>
+<p>ready DOM准备就绪时</p>
+<p>unload 离开页面时</p>
+<p>empty() 删除元素内容</p>
+</blockquote>
+<h5 id="绑定事件"><a href="#绑定事件" class="headerlink" title="绑定事件"></a>绑定事件</h5><blockquote>
+<p>trigger 触发指定事件类型</p>
+<p>one 执行一次事件函数</p>
+<p>bind 为一个元素绑定一个事件处理程序</p>
+<p>die 从元素中删除先前用live绑定的所有事件</p>
+<p>delegate 方法为指定的元素添加一个或多个事件处理程序，并规定当这些事件发生时运行的函数，可用于当前或未来的元素 </p>
+<p>unbind 删除所有事件</p>
+</blockquote>
+<h5 id="表单事件"><a href="#表单事件" class="headerlink" title="表单事件"></a>表单事件</h5><blockquote>
+<p>blur 输入域失去焦点</p>
+<p>change 输入域发生改变</p>
+<p>focus 输入域得到焦点</p>
+<p>focusin 获得焦点，与focus的区别是，它可以在父元素上检测子元素获得焦点的情况</p>
+<p>focusout 失去焦点，与blur的区别是，它可以在父元素上检测子元素获得焦点的情况</p>
+<p>select 当目标被选中时触发</p>
+<p>submit 提交</p>
+</blockquote>
+<h5 id="键盘事件"><a href="#键盘事件" class="headerlink" title="键盘事件"></a>键盘事件</h5><blockquote>
+<p>keydown 按下键盘触发</p>
+<p>keypress 键盘按下一直不松开触发</p>
+<p>keyup 松开键盘触发</p>
+</blockquote>
+<h5 id="鼠标事件："><a href="#鼠标事件：" class="headerlink" title="鼠标事件："></a>鼠标事件：</h5><blockquote>
+<p>click 单击</p>
+<p>dblclick 双击</p>
+<p>hover 当鼠标进入和离开时执行，绑定两个函数</p>
+<p>mousedown 按下鼠标按钮<br>mouseenter 鼠标指针进入（穿过）元素时</p>
+<p>mouseleave 鼠标离开</p>
+<p>mousemove 鼠标指针在指定元素中移动</p>
+<p>mouseout 鼠标指针移开</p>
+<p>mouseover 位于元素上方</p>
+<p>mouseup 松开鼠标按钮</p>
+</blockquote>
+
+      
+      
+        <div class="page-reward">
+          <p><a href="javascript:void(0)" onclick="dashangToggle()" class="dashang" title="打赏，支持一下">赏</a></p>
+          <div class="hide_box"></div>
+          <div class="shang_box">
+            <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()" title="关闭">×</a>
+            <div class="shang_tit">
+              <p>纯属好玩</p>
+            </div>
+            <div class="shang_payimg">
+              <img src="/img/alipayimg.jpg" alt="扫码支持" title="扫一扫" />
+            </div>
+              <div class="pay_explain">扫码打赏，你说多少就多少</div>
+            <div class="shang_payselect">
+              
+                <div class="pay_item checked" data-id="alipay">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/alipay.png" alt="支付宝" /></span>
+                </div>
+              
+              
+                <div class="pay_item" data-id="wechat">
+                  <span class="radiobox"></span>
+                  <span class="pay_logo"><img src="/img/weixin.png" alt="微信" /></span>
+                </div>
+              
+            </div>
+            <div class="shang_info">
+              <p>打开<span id="shang_pay_txt">支付宝</span>扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+        <script type="text/javascript">
+          $(".pay_item").click(function(){
+            $(this).addClass('checked').siblings('.pay_item').removeClass('checked');
+            var dataid=$(this).attr('data-id');
+            $(".shang_payimg img").attr("src","/img/"+dataid+"img.jpg");
+            $("#shang_pay_txt").text(dataid=="alipay"?"支付宝":"微信");
+          });
+          function dashangToggle(){
+            $(".hide_box").fadeToggle();
+            $(".shang_box").fadeToggle();
+          }
+        </script>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/12/06/jQuery事件/">jQuery事件</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 宋丽妹 的个人博客">宋丽妹</a></p>
+        <p><span>发布时间:</span>2017年12月06日 - 18时53分</p>
+        <p><span>最后更新:</span>2017年12月06日 - 19时03分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/12/06/jQuery事件/" title="jQuery事件">http://dreammei.me/2017/12/06/jQuery事件/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://dreammei.me/2017/12/06/jQuery事件/　　作者: 宋丽妹" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2017/12/06/jQuery常用的选择元素方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          jQuery常用的选择元素方法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/12/06/Json对象与Json字符串互转/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Json对象与Json字符串互转</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#jQuery事件"><span class="toc-number">1.</span> <span class="toc-text">jQuery事件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#浏览器"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">浏览器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#文档加载："><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">文档加载：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#绑定事件"><span class="toc-number">1.0.0.0.3.</span> <span class="toc-text">绑定事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#表单事件"><span class="toc-number">1.0.0.0.4.</span> <span class="toc-text">表单事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#键盘事件"><span class="toc-number">1.0.0.0.5.</span> <span class="toc-text">键盘事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#鼠标事件："><span class="toc-number">1.0.0.0.6.</span> <span class="toc-text">鼠标事件：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/12/06/jQuery常用的选择元素方法/" title="上一篇: jQuery常用的选择元素方法">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2017/12/06/Json对象与Json字符串互转/" title="下一篇: Json对象与Json字符串互转">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/关于作用域/">关于作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/关于this/">关于this</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/JavaScript调试技巧/">JavaScript调试技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/定时器/">定时器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/jQuery简单动画方法/">jQuery简单动画方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/jQuery常用方法/">jQuery常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/jQuery常用的选择元素方法/">jQuery常用的选择元素方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/jQuery事件/">jQuery事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/Json对象与Json字符串互转/">Json对象与Json字符串互转</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/js刷新当前页面方法/">js刷新当前页面方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/12/git/">git</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/29/javascript继承/">javascript继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/javascript创建对象的7中模式/">javascript创建对象的7中模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/11/Linux文件结构-1/">Linux文件结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/ajax的使用/">ajax的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/搭建springMVC环境/">搭建springMVC环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/Maven结合MyBatis/">Maven结合MyBatis</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/10/Eclipse使用Maven进行分布式开发/">Eclipse使用Maven进行分布式开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/21/Eclipse使用Maven/">Eclipse使用Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/16/Maven环境搭建/">Maven环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/19/spring核心机制依赖注入/">spring核心机制依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/19/spring常用注解/">spring常用注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/spring配置文件/">spring配置文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/单例/">单例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/序列化/">序列化</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/10/struts2/">struts2</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/02/20/equals和/">equals和==</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/28/IO/">IO</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/25/jsp九大内置对象/">jsp九大内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/03/css/">css</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/09/30/this关键字/">this关键字</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2017 宋丽妹
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >好友到访访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
