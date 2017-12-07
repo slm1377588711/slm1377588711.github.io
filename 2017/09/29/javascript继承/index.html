@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://dreammei.me/2017/09/29/javascript继承/index.html">
 <meta property="og:site_name" content="宋丽妹的博客">
 <meta property="og:description" content="1.原型链 定义两个类型：SuperType和SubType。每个类型分别有一个属性和一个方法。主要区别是SubType继承了SuperType，为继承是通过创建SuperType的实例，并将该实例赋给SubType.prototype实现的。实现的本质是重写原型对象，用一个新的类型的实例来代替。换句话说，原来存在于SuperType的实例中的所有属性和方法，现在也存在于SubType.prot">
-<meta property="og:updated_time" content="2017-09-29T07:24:54.725Z">
+<meta property="og:updated_time" content="2017-12-07T02:59:23.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript继承">
 <meta name="twitter:description" content="1.原型链 定义两个类型：SuperType和SubType。每个类型分别有一个属性和一个方法。主要区别是SubType继承了SuperType，为继承是通过创建SuperType的实例，并将该实例赋给SubType.prototype实现的。实现的本质是重写原型对象，用一个新的类型的实例来代替。换句话说，原来存在于SuperType的实例中的所有属性和方法，现在也存在于SubType.prot">
@@ -284,86 +284,84 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">function SuperType()&#123;</div><div class="line">this.property = true;</div><div class="line">&#125;</div><div class="line">SuperType.prototype.getSuperValue = function()</div><div class="line">&#123;</div><div class="line">return this.property;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>———————–以上为SuperType的属性和方法————————————<br>function SubType（）{<br>this.subproperty = false;<br>}<br>SubType.prototype = new SuperType();</p>
-<p> //通过创建SuperType的实例，并把实例赋值给SubType的原型实现了继承，即重写原型对象，用新的类型去代替<br>SubType.prototype.getSubValue = function(){<br>return this.subproperty;<br>}</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; ------------------------以上为SubType的属性和方法-------------------------------------------</div></pre></td></tr></table></figure>
-<p>var instance = new SubType（）；<br>alert(instance.getSuperValue)//true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;   用SubType的实例调用SuperType的方法</div><div class="line">&gt; 在上面的代码中我们没有使用SubType默认提供的原型，而是用SuperType的实例作为新原型替换了。于是，这个新原型内部有一个指针指向SuperType的原型，最终的结果是：instance指向SubType的原型，SubType的原型指向SuperType的原型。getSuperValue()方法仍然还在SuperType.prototype中，但properotyp则位于SubType中。这是因为property是一个实例属性，而getSuperValue（）则是一个原型方法。既然SubType.prototype现在是SuperType的实例，那么，property就应在实例中。此外要注意，instance.constructor现在指向的是SuperType，这是因为原来SubType.prototype中的Constructor被重写了的缘故。 </div><div class="line"></div><div class="line">- - ##### 通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样做就会重写原型链</div><div class="line"></div><div class="line">- 2.借用构造函数</div><div class="line"></div><div class="line">&gt; 在子类型构造函数的内部调用超类型构造函数。（解决原型中引用类型值所带来的问题）</div></pre></td></tr></table></figure></p>
-<p>function SuperType(){<br>            this.color = [“red”,”blue”,”green”];<br>        }<br>        //继承了SuperType<br>        function SubType(){<br>            SuperType.call(this);<br>        }<br>        var instance1 = new SubType();<br>        instance1.color.push(“black”);<br>        console.log(“子类型继承了超级类型的color属性，并添加了一个属性值：”+instance1.color);</p>
-<pre><code>var instance2 = new SubType();
-console.log(instance2.color);
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- - 传递参数</div></pre></td></tr></table></figure>
-<p>function SuperType(name){<br>            this.name = name;<br>        }<br>        function SubType(){<br>            //继承函数传递参数<br>            SuperType.call(this,”Nicholas”);<br>            //自己的属性<br>            this.age = 19;<br>        }<br>        var instance = new SubType();<br>        console.log(“继承的name属性是”+instance.name+”,自身的属性age的值是：”+instance.age);<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- - 缺点</div><div class="line"></div><div class="line">&gt; 如果仅仅是借用构造函数，那么也将无法避免构造函数模式存在的问题——方法都在构造函数中定</div><div class="line">&gt; 义，因此函数复用就无从谈起了。而且，在超类型的原型中定义的方法，对子类型而言也是不可见的，结</div><div class="line">&gt; 果所有类型都只能使用构造函数模式</div><div class="line"></div><div class="line">- 组合函数继承</div><div class="line"></div><div class="line">- - ###### 原型链和借用构造函数的技术组合到一块</div></pre></td></tr></table></figure></p>
-<pre><code>function SuperType(){
-    this.name = name;
-    this.color = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];
-}
-SuperType.prototype.sayName = function(){
-    console.log(this.name);
-}
-function SubType(name,age){
-    //继承属性
-    SuperType.call(this,name);
-    this.age = age;
-}
-//继承方法
-SubType.prototype = new SuperType();
-SubType.prototype.constructor = SubType;
-SubType.prototype.sayAge = function () {
-    console.log(this.age);
-};
-
-var instance1 = new SubType(&quot;Nicholas&quot;,29);
-instance1.color.push(&quot;black&quot;);
-console.log(instance1.color);
-instance1.sayAge();
-instance1.sayName();
-
-var instance2 = new SubType(&quot;Greg&quot;,21);
-console.log(instance2.color);
-instance2.sayAge();
-instance2.sayName();
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; 组合继承最发的问题就是无论什么情况下，都会调用两次超类型构造函数：</div><div class="line">&gt;     一次是在创建子类型原型的时候，另一次是在子类型构造函数内部。</div><div class="line">&gt;     子类型最终会包含超类型的全部实例属性，但我们不得不在调用子类型</div><div class="line">&gt;     构造函数时重写这些属性</div><div class="line"></div><div class="line">- 原型式继承</div></pre></td></tr></table></figure>
-<p>function object(o){<br>            function F(){}<br>            F.prototype=o;<br>            return new F();<br>        }<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">&gt; 在函数的内部先创建一个临时性的构造函数，然后将传入的对象作为这个构造函数的原型，最后返回了这个</div><div class="line">&gt;     临时类型的一个新实例</div></pre></td></tr></table></figure></p>
-<p>function object(o){<br>            function F(){}<br>            F.prototype=o;<br>            return new F();<br>        }<br>        var person = {<br>            name : “Nicholas”,<br>            friends:[“Shelby”,”Court”,”Van”]<br>        };<br>        var anotherPerson = object(person);<br>        anotherPerson.name = “Greg”;<br>        anotherPerson.friends.push(“Rob”);</p>
-<pre><code>var yetAnotherPerson = object(person);
-yetAnotherPerson.name = &quot;Linda&quot;;
-yetAnotherPerson.friends.push(&quot;Barbie&quot;);
-
-console.log(person.friends); //&quot;Shelby&quot;,&quot;Court&quot;,&quot;Van&quot;,&quot;Rob&quot;,&quot;Barbie&quot;
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; Object.create()方法规范化了原型式继承。这个方法接收两个参数：一</div><div class="line">&gt;         个用作新对象原型的对象和（可选的）一个为新对象定义额外属性的对象。在传入一个参数的情况下，</div><div class="line">&gt;         Object.create()与 object()方法的行为相同</div></pre></td></tr></table></figure>
-<p>var person = {<br>            name: “Nicholas”,<br>            friends: [“Shelby”, “Court”, “Van”]<br>        };<br>        var anotherPerson = Object.create(person);<br>        anotherPerson.name = “Greg”;<br>        anotherPerson.friends.push(“Rob”);<br>        var yetAnotherPerson = Object.create(person);<br>        yetAnotherPerson.name = “Linda”;<br>        yetAnotherPerson.friends.push(“Barbie”);<br>        alert(person.friends); //“Shelby,Court,Van,Rob,Barbie”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- 寄生式继承</div><div class="line">&gt;     创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再像真的是它做了所有工作</div><div class="line">&gt;      一样返回对象。</div></pre></td></tr></table></figure></p>
-<p>function object(o){<br>            function F(){}<br>            F.prototype=o;<br>            return new F();<br>        }<br>        function createAnother(original){<br>            var clone = object(original);//通过调用函数创建一个新对象<br>            clone.sayHi = function () { //以某种方式来增强这个对象<br>                console.log(“hi”);<br>            };<br>            return clone;   //返回这个对象<br>        }<br>        var person = {<br>            name:”Nicholas”,<br>            friends:[“Shelby”,”Court”,”Van”]<br>        };<br>        var anotherPerson = createAnother(person)<br>        anotherPerson.sayHi();<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; 做不到函数复用而降低效率</div><div class="line"></div><div class="line"></div><div class="line">- 寄生组合式继承</div><div class="line">&gt;     寄生组合式继承通过借用构造函数来继承属性，通过原型链的混成形式来继承方法</div></pre></td></tr></table></figure></p>
-<pre><code> function object(o){
-     function F(){}
-     F.prototype=o;
-     return new F();
- }
-function inheritPrototype(subType,superType){
-    var prototype = object(superType.prototype);//创建对象
-    prototype.constructor = subType; //增强对象
-    subType.prototype = prototype;//指定对象
-}
-//1、创建超类型原型的一个副本
-// 2、创建的副本constructor属性
-// 3、将新创建的对象赋值给子类型的原型
- function SuperType(name){
-     this.name = name;
-     this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];
- }
- SuperType.prototype.sayName = function(){
-     alert(this.name);
- };
- function SubType(name, age){
-     SuperType.call(this, name);
-     this.age = age;
- }
- inheritPrototype(SubType, SuperType);
- SubType.prototype.sayAge = function(){
-     alert(this.age);
- };
- var instance = new SubType(&quot;slm&quot;,19);
- instance.sayName();
-</code></pre><p>```</p>
+<p>———————–以上为SuperType的属性和方法————————————<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">function SubType（）&#123;</div><div class="line">this.subproperty = false;</div><div class="line">&#125;</div><div class="line">SubType.prototype = new SuperType();</div><div class="line"></div><div class="line"> </div><div class="line"> //通过创建SuperType的实例，并把实例赋值给SubType的原型实现了继承，即重写原型对象，用新的类型去代替</div><div class="line">SubType.prototype.getSubValue = function()&#123;</div><div class="line">return this.subproperty;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>————————以上为SubType的属性和方法——————————————-</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var instance = new SubType（）；</div><div class="line">alert(instance.getSuperValue)//true</div></pre></td></tr></table></figure>
+<blockquote>
+<p>  用SubType的实例调用SuperType的方法<br>在上面的代码中我们没有使用SubType默认提供的原型，而是用SuperType的实例作为新原型替换了。于是，这个新原型内部有一个指针指向SuperType的原型，最终的结果是：instance指向SubType的原型，SubType的原型指向SuperType的原型。getSuperValue()方法仍然还在SuperType.prototype中，但properotyp则位于SubType中。这是因为property是一个实例属性，而getSuperValue（）则是一个原型方法。既然SubType.prototype现在是SuperType的实例，那么，property就应在实例中。此外要注意，instance.constructor现在指向的是SuperType，这是因为原来SubType.prototype中的Constructor被重写了的缘故。 </p>
+</blockquote>
+<ul>
+<li><ul>
+<li><h5 id="通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样做就会重写原型链"><a href="#通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样做就会重写原型链" class="headerlink" title="通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样做就会重写原型链"></a>通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样做就会重写原型链</h5></li>
+</ul>
+</li>
+<li><p>2.借用构造函数</p>
+</li>
+</ul>
+<blockquote>
+<p>在子类型构造函数的内部调用超类型构造函数。（解决原型中引用类型值所带来的问题）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function SuperType()&#123;</div><div class="line">            this.color = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</div><div class="line">        &#125;</div><div class="line">        //继承了SuperType</div><div class="line">        function SubType()&#123;</div><div class="line">            SuperType.call(this);</div><div class="line">        &#125;</div><div class="line">        var instance1 = new SubType();</div><div class="line">        instance1.color.push(&quot;black&quot;);</div><div class="line">        console.log(&quot;子类型继承了超级类型的color属性，并添加了一个属性值：&quot;+instance1.color);</div><div class="line"></div><div class="line"></div><div class="line">        var instance2 = new SubType();</div><div class="line">        console.log(instance2.color);</div></pre></td></tr></table></figure>
+<ul>
+<li><ul>
+<li>传递参数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function SuperType(name)&#123;</div><div class="line">            this.name = name;</div><div class="line">        &#125;</div><div class="line">        function SubType()&#123;</div><div class="line">            //继承函数传递参数</div><div class="line">            SuperType.call(this,&quot;Nicholas&quot;);</div><div class="line">            //自己的属性</div><div class="line">            this.age = 19;</div><div class="line">        &#125;</div><div class="line">        var instance = new SubType();</div><div class="line">        console.log(&quot;继承的name属性是&quot;+instance.name+&quot;,自身的属性age的值是：&quot;+instance.age);</div></pre></td></tr></table></figure>
+<ul>
+<li><ul>
+<li>缺点</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>如果仅仅是借用构造函数，那么也将无法避免构造函数模式存在的问题——方法都在构造函数中定<br>义，因此函数复用就无从谈起了。而且，在超类型的原型中定义的方法，对子类型而言也是不可见的，结<br>果所有类型都只能使用构造函数模式</p>
+</blockquote>
+<ul>
+<li><p>组合函数继承</p>
+</li>
+<li><ul>
+<li><h6 id="原型链和借用构造函数的技术组合到一块"><a href="#原型链和借用构造函数的技术组合到一块" class="headerlink" title="原型链和借用构造函数的技术组合到一块"></a>原型链和借用构造函数的技术组合到一块</h6></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">function SuperType()&#123;</div><div class="line">    this.name = name;</div><div class="line">    this.color = [&quot;red&quot;,&quot;blue&quot;,&quot;green&quot;];</div><div class="line">&#125;</div><div class="line">SuperType.prototype.sayName = function()&#123;</div><div class="line">    console.log(this.name);</div><div class="line">&#125;</div><div class="line">function SubType(name,age)&#123;</div><div class="line">    //继承属性</div><div class="line">    SuperType.call(this,name);</div><div class="line">    this.age = age;</div><div class="line">&#125;</div><div class="line">//继承方法</div><div class="line">SubType.prototype = new SuperType();</div><div class="line">SubType.prototype.constructor = SubType;</div><div class="line">SubType.prototype.sayAge = function () &#123;</div><div class="line">    console.log(this.age);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var instance1 = new SubType(&quot;Nicholas&quot;,29);</div><div class="line">instance1.color.push(&quot;black&quot;);</div><div class="line">console.log(instance1.color);</div><div class="line">instance1.sayAge();</div><div class="line">instance1.sayName();</div><div class="line"></div><div class="line">var instance2 = new SubType(&quot;Greg&quot;,21);</div><div class="line">console.log(instance2.color);</div><div class="line">instance2.sayAge();</div><div class="line">instance2.sayName();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>组合继承最发的问题就是无论什么情况下，都会调用两次超类型构造函数：<br>    一次是在创建子类型原型的时候，另一次是在子类型构造函数内部。<br>    子类型最终会包含超类型的全部实例属性，但我们不得不在调用子类型<br>    构造函数时重写这些属性</p>
+</blockquote>
+<ul>
+<li>原型式继承</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">function object(o)&#123;</div><div class="line">            function F()&#123;&#125;</div><div class="line">            F.prototype=o;</div><div class="line">            return new F();</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在函数的内部先创建一个临时性的构造函数，然后将传入的对象作为这个构造函数的原型，最后返回了这个<br>    临时类型的一个新实例</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function object(o)&#123;</div><div class="line">            function F()&#123;&#125;</div><div class="line">            F.prototype=o;</div><div class="line">            return new F();</div><div class="line">        &#125;</div><div class="line">        var person = &#123;</div><div class="line">            name : &quot;Nicholas&quot;,</div><div class="line">            friends:[&quot;Shelby&quot;,&quot;Court&quot;,&quot;Van&quot;]</div><div class="line">        &#125;;</div><div class="line">        var anotherPerson = object(person);</div><div class="line">        anotherPerson.name = &quot;Greg&quot;;</div><div class="line">        anotherPerson.friends.push(&quot;Rob&quot;);</div><div class="line"></div><div class="line">        var yetAnotherPerson = object(person);</div><div class="line">        yetAnotherPerson.name = &quot;Linda&quot;;</div><div class="line">        yetAnotherPerson.friends.push(&quot;Barbie&quot;);</div><div class="line"></div><div class="line">        console.log(person.friends); //&quot;Shelby&quot;,&quot;Court&quot;,&quot;Van&quot;,&quot;Rob&quot;,&quot;Barbie&quot;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Object.create()方法规范化了原型式继承。这个方法接收两个参数：一<br>        个用作新对象原型的对象和（可选的）一个为新对象定义额外属性的对象。在传入一个参数的情况下，<br>        Object.create()与 object()方法的行为相同</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var person = &#123;</div><div class="line">            name: &quot;Nicholas&quot;,</div><div class="line">            friends: [&quot;Shelby&quot;, &quot;Court&quot;, &quot;Van&quot;]</div><div class="line">        &#125;;</div><div class="line">        var anotherPerson = Object.create(person);</div><div class="line">        anotherPerson.name = &quot;Greg&quot;;</div><div class="line">        anotherPerson.friends.push(&quot;Rob&quot;);</div><div class="line">        var yetAnotherPerson = Object.create(person);</div><div class="line">        yetAnotherPerson.name = &quot;Linda&quot;;</div><div class="line">        yetAnotherPerson.friends.push(&quot;Barbie&quot;);</div><div class="line">        alert(person.friends); //&quot;Shelby,Court,Van,Rob,Barbie&quot;</div></pre></td></tr></table></figure>
+<ul>
+<li>寄生式继承<blockquote>
+<pre><code>创建一个仅用于封装继承过程的函数，该函数在内部以某种方式来增强对象，最后再像真的是它做了所有工作
+ 一样返回对象。
+</code></pre></blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function object(o)&#123;</div><div class="line">            function F()&#123;&#125;</div><div class="line">            F.prototype=o;</div><div class="line">            return new F();</div><div class="line">        &#125;</div><div class="line">        function createAnother(original)&#123;</div><div class="line">            var clone = object(original);//通过调用函数创建一个新对象</div><div class="line">            clone.sayHi = function () &#123; //以某种方式来增强这个对象</div><div class="line">                console.log(&quot;hi&quot;);</div><div class="line">            &#125;;</div><div class="line">            return clone;   //返回这个对象</div><div class="line">        &#125;</div><div class="line">        var person = &#123;</div><div class="line">            name:&quot;Nicholas&quot;,</div><div class="line">            friends:[&quot;Shelby&quot;,&quot;Court&quot;,&quot;Van&quot;]</div><div class="line">        &#125;;</div><div class="line">        var anotherPerson = createAnother(person)</div><div class="line">        anotherPerson.sayHi();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>做不到函数复用而降低效率</p>
+</blockquote>
+<ul>
+<li>寄生组合式继承<blockquote>
+<pre><code>寄生组合式继承通过借用构造函数来继承属性，通过原型链的混成形式来继承方法
+</code></pre></blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"> function object(o)&#123;</div><div class="line">     function F()&#123;&#125;</div><div class="line">     F.prototype=o;</div><div class="line">     return new F();</div><div class="line"> &#125;</div><div class="line">function inheritPrototype(subType,superType)&#123;</div><div class="line">    var prototype = object(superType.prototype);//创建对象</div><div class="line">    prototype.constructor = subType; //增强对象</div><div class="line">    subType.prototype = prototype;//指定对象</div><div class="line">&#125;</div><div class="line">//1、创建超类型原型的一个副本</div><div class="line">// 2、创建的副本constructor属性</div><div class="line">// 3、将新创建的对象赋值给子类型的原型</div><div class="line"> function SuperType(name)&#123;</div><div class="line">     this.name = name;</div><div class="line">     this.colors = [&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;];</div><div class="line"> &#125;</div><div class="line"> SuperType.prototype.sayName = function()&#123;</div><div class="line">     alert(this.name);</div><div class="line"> &#125;;</div><div class="line"> function SubType(name, age)&#123;</div><div class="line">     SuperType.call(this, name);</div><div class="line">     this.age = age;</div><div class="line"> &#125;</div><div class="line"> inheritPrototype(SubType, SuperType);</div><div class="line"> SubType.prototype.sayAge = function()&#123;</div><div class="line">     alert(this.age);</div><div class="line"> &#125;;</div><div class="line"> var instance = new SubType(&quot;slm&quot;,19);</div><div class="line"> instance.sayName();</div></pre></td></tr></table></figure>
 <blockquote>
 <p>超类型中有name、color属性，原型中有sayName方法<br>        子类型中有age属性，原型中有sayAge方法，但是，子类型继承了超类型。<br>         最终，子类型也可以使用sayName方法</p>
 </blockquote>
@@ -440,7 +438,7 @@ function inheritPrototype(subType,superType){
         <p><span>本文标题:</span><a href="/2017/09/29/javascript继承/">javascript继承</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 宋丽妹 的个人博客">宋丽妹</a></p>
         <p><span>发布时间:</span>2017年09月29日 - 15时20分</p>
-        <p><span>最后更新:</span>2017年09月29日 - 15时24分</p>
+        <p><span>最后更新:</span>2017年12月07日 - 10时59分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2017/09/29/javascript继承/" title="javascript继承">http://dreammei.me/2017/09/29/javascript继承/</a>
             <span class="copy-path" data-clipboard-text="原文: http://dreammei.me/2017/09/29/javascript继承/　　作者: 宋丽妹" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -478,7 +476,7 @@ function inheritPrototype(subType,superType){
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    
+    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样做就会重写原型链"><span class="toc-number">1.</span> <span class="toc-text">通过原型链实现继承时，不能使用对象字面量创建原型方法。因为这样做就会重写原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#原型链和借用构造函数的技术组合到一块"><span class="toc-number">1.1.</span> <span class="toc-text">原型链和借用构造函数的技术组合到一块</span></a></li></ol></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
