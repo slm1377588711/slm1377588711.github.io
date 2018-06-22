@@ -11,6 +11,7 @@
 <meta property="og:url" content="http://dreammei.me/index.html">
 <meta property="og:site_name" content="宋丽妹的博客">
 <meta property="og:description" content="暂时不想写">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="宋丽妹的博客">
 <meta name="twitter:description" content="暂时不想写">
@@ -153,7 +154,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/HTML-CSS总结/" style="font-size: 10px;">HTML+CSS总结</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/jQuery/" style="font-size: 20px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 15px;">spring</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a>
+                        <a href="/tags/HTML-CSS总结/" style="font-size: 10px;">HTML+CSS总结</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/Maven/" style="font-size: 16.67px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/html转doc保存/" style="font-size: 13.33px;">html转doc保存</a> <a href="/tags/jQuery/" style="font-size: 20px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a> <a href="/tags/处理字符串/" style="font-size: 10px;">处理字符串</a> <a href="/tags/备忘代码/" style="font-size: 20px;">备忘代码</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a>
                     </div>
                 </section>
                 
@@ -237,6 +238,597 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-复用次数多的代码，根据cardUrl查询名字" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/复用次数多的代码，根据cardUrl查询名字/" class="article-date">
+      <time datetime="2018-06-22T10:37:26.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/复用次数多的代码，根据cardUrl查询名字/">复用次数多的代码，根据cardUrl查询名字</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <pre><code>retMap = ESUtil.selectEE(Constants.INDEX_HOTEL, Constants.HOTEL_CONTACTSINFO, queryMap, null, companyId, null);
+if (!retMap.isEmpty()) {
+    List retList = (List) retMap.get(&quot;data&quot;);
+    if (retList.size() &gt; 0) {
+        for (int i = 0; i &lt; retList.size(); i++) {
+            Map objMap = (Map) retList.get(i);
+            //负责人的名字
+            String responsiblePerson = (String) objMap.get(&quot;responsiblePerson&quot;);
+            String responsiblePersonName = &quot;&quot;;
+            if (StringUtils.isNotEmpty(responsiblePerson)) {
+                List&lt;String&gt; paramList = new ArrayList&lt;&gt;();
+                paramList.add(responsiblePerson);
+                Map&lt;String, String&gt; retNameMap = getRealnameByCardUrl(paramList, companyId);
+                responsiblePersonName = retNameMap.get(responsiblePerson);
+            }
+            objMap.put(&quot;responsiblePersonName&quot;, responsiblePersonName);
+        }
+    }
+}
+</code></pre>
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备忘代码/">备忘代码</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-数据存的多个图片路径，需要给前端返回list集合代码" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/数据存的多个图片路径，需要给前端返回list集合代码/" class="article-date">
+      <time datetime="2018-06-22T10:35:41.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/数据存的多个图片路径，需要给前端返回list集合代码/">数据存的多个图片路径，需要给前端返回list集合代码</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h5 id="库中存的图片路径是以逗号分割的"><a href="#库中存的图片路径是以逗号分割的" class="headerlink" title="库中存的图片路径是以逗号分割的"></a>库中存的图片路径是以逗号分割的</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 上传的图片（retMap为查询出来的整个文档）</div><div class="line">    String picture = (String) retMap.get(&quot;pictureUrl&quot;);</div><div class="line">    List pictureList = new ArrayList();</div><div class="line">    if (picture != null &amp;&amp; StringUtils.isNotEmpty(picture)) &#123;</div><div class="line">        String[] pictureArr = picture.split(&quot;,&quot;);</div><div class="line">        pictureList = Arrays.asList(pictureArr);</div><div class="line">        if (pictureList == null) &#123;</div><div class="line">            pictureList = new ArrayList();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    retMap.put(&quot;pictureList&quot;, pictureList);</div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备忘代码/">备忘代码</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-查询出来的数据是个集合，但是需要对集合中的每条数据做字段的添加和字段的处理的情况" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/查询出来的数据是个集合，但是需要对集合中的每条数据做字段的添加和字段的处理的情况/" class="article-date">
+      <time datetime="2018-06-22T10:34:02.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/查询出来的数据是个集合，但是需要对集合中的每条数据做字段的添加和字段的处理的情况/">查询出来的数据是个集合，但是需要对集合中的每条数据做字段的添加和字段的处理的情况</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">Map retMap = ESUtil.selectEE(Constants.INDEX_DISCOVERY, Constants.ES_TYPE_DISCOVERY_INFO, rowMap,</div><div class="line">                sortMap, null, termsMap);</div><div class="line">            if (!retMap.isEmpty()) &#123;</div><div class="line">                List retList = (ArrayList) retMap.get(&quot;data&quot;);</div><div class="line">                if (retList.size() &gt; 0) &#123;</div><div class="line">                    for (int j = 0; j &lt; retList.size(); j++) &#123;</div><div class="line">                        Map retOneDis = (HashMap) retList.get(j);</div><div class="line">                        if (retOneDis.containsKey(&quot;discoveryImg&quot;) &amp;&amp; StringUtils.isNotEmpty(retOneDis.get(&quot;discoveryImg&quot;).toString())) &#123;</div><div class="line">                            String discoveryImg = retOneDis.get(&quot;discoveryImg&quot;).toString();</div><div class="line">                            List discoveryImgList = new ArrayList();</div><div class="line">                            if (discoveryImg != null &amp;&amp; StringUtils.isNotEmpty(discoveryImg)) &#123;</div><div class="line">                                String[] discoveryImgArr = discoveryImg.split(&quot; &quot;);</div><div class="line">                                discoveryImgList = Arrays.asList(discoveryImgArr);</div><div class="line">                                if (discoveryImgList == null) &#123;</div><div class="line">                                    discoveryImgList = new ArrayList();</div><div class="line">                                &#125;</div><div class="line">                            &#125;</div><div class="line">                            retOneDis.put(&quot;discoveryImgList&quot;, discoveryImgList);</div><div class="line">                        &#125;</div><div class="line">                        //获取商号头像和名称</div><div class="line">                        String companyId = (String) retOneDis.get(&quot;companyId&quot;);</div><div class="line">                        List list = companyService.loadCompanyImgAndName(companyId);</div><div class="line">                        if (list != null &amp;&amp; list.size() &gt; 0) &#123;</div><div class="line">                            Map map = (Map) list.get(0);</div><div class="line">                            if (map.containsKey(&quot;headimgurl&quot;)) &#123;</div><div class="line">                                retOneDis.put(&quot;companyImg&quot;, map.get(&quot;headimgurl&quot;));</div><div class="line">                            &#125;</div><div class="line">                            if (map.containsKey(&quot;companyName&quot;)) &#123;</div><div class="line">                                retOneDis.put(&quot;companyName&quot;, map.get(&quot;companyName&quot;));</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                        //添加权限字段</div><div class="line">                        for (int k = 0; k &lt; checkAdminList.size(); k++) &#123;</div><div class="line">                            Map chckRetMap = (HashMap) checkAdminList.get(k);</div><div class="line">                            String checkCompanyId = (String) chckRetMap.get(&quot;companyId&quot;);</div><div class="line">                            if (companyId.equals(checkCompanyId)) &#123;</div><div class="line">                                retOneDis.put(&quot;isAdmin&quot;, chckRetMap.get(&quot;isAdmin&quot;));</div><div class="line">                                break;</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                        retMapList.add(retOneDis);</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备忘代码/">备忘代码</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-模糊查询，一个值查询多个字段（数据库字段没有做分词的设计情况）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/模糊查询，一个值查询多个字段（数据库字段没有做分词的设计情况）/" class="article-date">
+      <time datetime="2018-06-22T10:32:50.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/模糊查询，一个值查询多个字段（数据库字段没有做分词的设计情况）/">模糊查询，一个值查询多个字段（数据库字段没有做分词的设计情况）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h5 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">@ApiOperation(value = &quot;搜索酒店类型的外联人&quot;, notes = &quot;查询酒店类型的外联人&quot;, httpMethod = &quot;POST&quot;, response = Object.class)</div><div class="line">    @ApiImplicitParams(&#123;</div><div class="line">        @ApiImplicitParam(name = &quot;params&quot;, readOnly = true, value = &quot;&quot;, dataType = &quot;String&quot;, paramType = &quot;query&quot;),</div><div class="line">        @ApiImplicitParam(name = &quot;keyWord&quot;, value = &quot;关键字查询&quot;, required = false, dataType = &quot;String&quot;, paramType = &quot;query&quot;),</div><div class="line">        @ApiImplicitParam(name = &quot;pageNumber&quot;, required = false, dataType = &quot;String&quot;, paramType = &quot;query&quot;),</div><div class="line">        @ApiImplicitParam(name = &quot;pageSize&quot;, required = false, dataType = &quot;String&quot;, paramType = &quot;query&quot;),</div><div class="line">    &#125;)</div><div class="line">    @RequestMapping(value = &quot;/searchContactsList&quot;, method = RequestMethod.POST)</div><div class="line">    public @ResponseBody</div><div class="line">    String searchContactsList(@RequestBody Map&lt;String, String&gt; params) &#123;</div><div class="line">        String ret = &quot;&quot;;</div><div class="line">        try &#123;</div><div class="line">            String cardUrl = getCardUrl();</div><div class="line">            if (params.containsKey(&quot;cardUrl&quot;) &amp;&amp; StringUtils.isNotEmpty(params.get(&quot;cardUrl&quot;))) &#123;</div><div class="line">                cardUrl = params.get(&quot;cardUrl&quot;);</div><div class="line">            &#125;</div><div class="line">            String companyId = getCompanyId();</div><div class="line">            if (!params.containsKey(&quot;companyId&quot;) || StringUtils.isEmpty(params.get(&quot;companyId&quot;))) &#123;</div><div class="line">                params.put(&quot;companyId&quot;, companyId);</div><div class="line">            &#125;</div><div class="line">            if (StringUtils.isNotEmpty(cardUrl) &amp;&amp; StringUtils.isNotEmpty(companyId)) &#123;</div><div class="line">                Map retMap = externalContactsInfoService.searchContactsList(params, companyId);</div><div class="line">                ret = JsonUtils.genUpdateDataReturnJsonStr(true, &quot;搜索成功&quot;, retMap);</div><div class="line">            &#125; else &#123;</div><div class="line">                ret = JsonUtils.genUpdateDataReturnJsonStr(false, &quot;cardUrl或者companyId为空&quot;);</div><div class="line">            &#125;</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            LogUtil.error(e);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        return ret;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h5 id="调用的Service"><a href="#调用的Service" class="headerlink" title="调用的Service"></a>调用的Service</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line">* 搜索酒店外联人</div><div class="line">* */</div><div class="line">public Map searchContactsList(Map param, String companyId) throws Exception &#123;</div><div class="line">    Map map = new HashMap();</div><div class="line">    // 按更新时间降序</div><div class="line">    Map&lt;String, SortOrder&gt; sortMap = new HashMap&lt;&gt;();</div><div class="line">    sortMap.put(&quot;genTime&quot;, SortOrder.DESC);</div><div class="line">    String keyWord = param.get(&quot;keyWord&quot;).toString();</div><div class="line">    String json = &quot;&#123;\&quot;bool\&quot;:&#123;\&quot;must\&quot;:[&#123;\&quot;term\&quot;:&#123;\&quot;companyId\&quot;:\&quot;%companyId%\&quot;&#125;&#125;,&#123;\&quot;term\&quot;:&#123;\&quot;contactsType\&quot;:\&quot;酒店客户\&quot;&#125;&#125;],\n&quot; +</div><div class="line">        &quot;\t\t\t\t\t\t\t\&quot;must_not\&quot;: [&#123;\&quot;term\&quot;: &#123;\&quot;isDel\&quot;: \&quot;true\&quot;&#125;&#125;],\n&quot; +</div><div class="line">        &quot;\t\t\t\t\t\t\t\&quot;should\&quot;:[&#123;\&quot;wildcard\&quot;:&#123;\&quot;contactsName\&quot;:\&quot;*%keyword%*\&quot;&#125;&#125;,&#123;\&quot;wildcard\&quot;:&#123;\&quot;telPhone\&quot;:\&quot;*%keyword%*\&quot;&#125;&#125;],\n&quot; +</div><div class="line">        &quot;\t\t\t\t\t\t\t\&quot;minimum_should_match\&quot;:1&#125;&#125;&quot;;</div><div class="line">    json = json.replace(&quot;%companyId%&quot;, companyId).replace(&quot;%keyword%&quot;, keyWord);</div><div class="line">    map = ESUtil.queryList(Constants.INDEX_HOTEL,</div><div class="line">        Constants.HOTEL_CONTACTSINFO, json,</div><div class="line">        Integer.parseInt((String) param.get(&quot;pageNumber&quot;)) - 1,</div><div class="line">        Integer.parseInt((String) param.get(&quot;pageSize&quot;)), sortMap, companyId);</div><div class="line">    return map;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备忘代码/">备忘代码</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-处理存的字段（点赞的情况，一个人不能重复点赞）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/处理存的字段（点赞的情况，一个人不能重复点赞）/" class="article-date">
+      <time datetime="2018-06-22T10:30:58.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/处理存的字段（点赞的情况，一个人不能重复点赞）/">处理存的字段（点赞的情况，一个人不能重复点赞）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>代码背景描述：</p>
+<p>一个字段值为”cardUrl”:”card1 card2 card3”,<br>修改这个字段，如果已经存在则删除，如果不存在，就做添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">Map retMap = getDiscoveryInfoById(params.get(&quot;discoveryId&quot;));</div><div class="line">        if (!retMap.isEmpty()) &#123;</div><div class="line">            //判断不包含点赞者cardUrl字段,或者字段值为空,则直接添加，</div><div class="line">            // 如果已经有点赞者字段值，则进行字段的处理</div><div class="line">            if (retMap.containsKey(&quot;praise&quot;) &amp;&amp; StringUtils.isNotEmpty((String) retMap.get(&quot;praise&quot;))) &#123;</div><div class="line">                String praiseCardUrl = (String) retMap.get(&quot;praise&quot;);</div><div class="line">                List&lt;String&gt; praiseCardUrlNew = new ArrayList();</div><div class="line">                String[] praiseCardUrlArr = praiseCardUrl.split(&quot; &quot;);</div><div class="line">                praiseCardUrlNew = new ArrayList(Arrays.asList(praiseCardUrlArr));</div><div class="line">                if (praiseCardUrlNew.size() &gt; 0) &#123;</div><div class="line">                    //判断是否已经是点赞者，如果是，则删除，如果不是，则添加</div><div class="line">                    if (!praiseCardUrlNew.contains(cardUrl)) &#123;</div><div class="line">                        praiseCardUrlNew.add(cardUrl);</div><div class="line">                    &#125; else &#123;</div><div class="line">                        for (String ss : praiseCardUrlNew) &#123;</div><div class="line">                            if (ss.equals(cardUrl)) &#123;</div><div class="line">                                praiseCardUrlNew.remove(ss);</div><div class="line">                                break;</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                String praise = StringUtils.join(praiseCardUrlNew.toArray(), &quot; &quot;);</div><div class="line">                params.put(&quot;praise&quot;, praise);</div><div class="line">            &#125; else &#123;</div><div class="line">                params.put(&quot;praise&quot;, cardUrl);</div><div class="line">            &#125;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备忘代码/">备忘代码</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="w-做延缓或者-关闭延缓关键代码（实质也是处理了一个字符串" class="article article-type-w" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/做延缓或者-关闭延缓关键代码（实质也是处理了一个字符串/" class="article-date">
+      <time datetime="2018-06-22T10:29:29.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/做延缓或者-关闭延缓关键代码（实质也是处理了一个字符串/">做延缓或者 关闭延缓关键代码（实质也是处理了一个字符串)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>描述：</p>
+<p>延缓操作，就是把待审批的人的字段值移至延缓人字段中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line">//存放审批人的list</div><div class="line">List&lt;String&gt; workflowWaitPersonNew = new ArrayList();</div><div class="line"> //存放延缓人的list</div><div class="line">List&lt;String&gt; workflowDelayNew = new ArrayList();</div><div class="line"></div><div class="line">retMap = ESUtil.selectOneRowEE(Constants.INDEX_WORKFLOW,Constants.ES_TYPE_WORKFLOW_WrokflowTable,queryMap,null,companyId,null);</div><div class="line">        //待审批人 workflowWaitPerson</div><div class="line">        if(retMap.containsKey(&quot;workflowWaitPerson&quot;) &amp;&amp; StringUtils.isNotEmpty(retMap.get(&quot;workflowWaitPerson&quot;).toString())) &#123;</div><div class="line">            String workflowWaitPerson = retMap.get(&quot;workflowWaitPerson&quot;).toString();</div><div class="line">            String[] workflowPersonArr = workflowWaitPerson.split(&quot; &quot;);</div><div class="line">            workflowWaitPersonNew = new ArrayList(Arrays.asList(workflowPersonArr));</div><div class="line">        &#125;</div><div class="line">        //做延缓的人</div><div class="line">        if(retMap.containsKey(&quot;workflowDelayPerson&quot;) &amp;&amp; StringUtils.isNotEmpty(retMap.get(&quot;workflowDelayPerson&quot;).toString()))&#123;</div><div class="line">            String workflowDelayPerson = retMap.get(&quot;workflowDelayPerson&quot;).toString();</div><div class="line">            String [] workflowDelayarr = workflowDelayPerson.split(&quot; &quot;);</div><div class="line">            workflowDelayNew = new ArrayList(Arrays.asList(workflowDelayarr));</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (param.containsKey(&quot;type&quot;) &amp;&amp; StringUtils.isNotEmpty(param.get(&quot;type&quot;)))&#123;</div><div class="line">                //1. goYH 需要一个审批流Id，查询到 待我审批的值，做删除，并把我的cardUrl加到延缓人字段里</div><div class="line">                if(&quot;goYH&quot;.equals(param.get(&quot;type&quot;))) &#123;</div><div class="line">                    //如果审批人长度大于零，则循环 用当前cardUrl对比数据，如果等于，则移除</div><div class="line">                    if(workflowWaitPersonNew.size()&gt;0)&#123;</div><div class="line">                        for(String ss : workflowWaitPersonNew)&#123;</div><div class="line">                            if (ss.equals(param.get(&quot;cardUrl&quot;)))&#123;</div><div class="line">                                workflowWaitPersonNew.remove(ss);</div><div class="line">                                break;</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                    //如果查到的有延缓人，则判断，是否存在当前cardUrl,如果，不存在，则追加当前cardUrl</div><div class="line">                    //如果没有延缓人，则直接追加当前cardUrl</div><div class="line">                    if(workflowDelayNew.size()&gt;0)&#123;</div><div class="line">                        if (!workflowDelayNew.contains(param.get(&quot;cardUrl&quot;)))&#123;</div><div class="line">                            workflowDelayNew.add(param.get(&quot;cardUrl&quot;));</div><div class="line">                        &#125;</div><div class="line">                    &#125;else&#123;</div><div class="line">                        workflowDelayNew.add(param.get(&quot;cardUrl&quot;));</div><div class="line">                    &#125;</div><div class="line">                &#125;else&#123;</div><div class="line">                    //2. 关闭延缓 需要一个审批流Id，查询到 延缓值，做删除，并把我的cardUrl加到审批人字段里</div><div class="line">                   //删除延缓的值</div><div class="line">                    if(workflowDelayNew.size()&gt;0)&#123;</div><div class="line">                        for(String ss : workflowDelayNew)&#123;</div><div class="line">                            if (ss.equals(param.get(&quot;cardUrl&quot;)))&#123;</div><div class="line">                                workflowDelayNew.remove(ss);</div><div class="line">                                break;</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                    //添加待审批人的值</div><div class="line">                    if(workflowWaitPersonNew.size()&gt;0)&#123;</div><div class="line">                        if (!workflowWaitPersonNew.contains(param.get(&quot;cardUrl&quot;)))&#123;</div><div class="line">                            workflowWaitPersonNew.add(param.get(&quot;cardUrl&quot;));</div><div class="line">                        &#125;</div><div class="line">                    &#125;else&#123;</div><div class="line">                        workflowWaitPersonNew.add(param.get(&quot;cardUrl&quot;));</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                String workflowDelayPerson = StringUtils.join(workflowDelayNew.toArray(), &quot; &quot;);</div><div class="line">                String workflowWaitPerson = StringUtils.join(workflowWaitPersonNew.toArray(), &quot; &quot;);</div><div class="line">                Map updataMap = new HashMap();</div><div class="line">                updataMap.put(&quot;workflowDelayPerson&quot;,workflowDelayPerson);</div><div class="line">                updataMap.put(&quot;workflowWaitPerson&quot;,workflowWaitPerson);</div><div class="line">                updataMap.put(&quot;rowId&quot;,param.get(&quot;workflowId&quot;));</div><div class="line">                //修改</div><div class="line">                ParamCUDES para = new ParamCUDES();</div><div class="line">                para.index = Constants.INDEX_WORKFLOW;</div><div class="line">                para.type = Constants.ES_TYPE_WORKFLOW_WrokflowTable;</div><div class="line">                para.routing = companyId;</div><div class="line">                para.row = updataMap;</div><div class="line">                para.id = (String)updataMap.get(&quot;rowId&quot;);</div><div class="line">                ESUtil.updateEE(para);</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/处理字符串/">处理字符串</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-项目中已有封装es查询，进行范围查询" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/项目中已有封装es查询，进行范围查询/" class="article-date">
+      <time datetime="2018-06-22T10:26:44.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/项目中已有封装es查询，进行范围查询/">项目中已有封装es查询，进行范围查询</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>查询参数：开始时间和结束时间。查询字段是创建时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">if(map.containsKey(&quot;startTime&quot;) || map.containsKey(&quot;endTime&quot;))&#123;</div><div class="line">                String str = map.get(&quot;startTime&quot;).toString();</div><div class="line">                String str2 = map.get(&quot;endTime&quot;).toString();</div><div class="line">                if(str!=null &amp;&amp; !&quot;&quot;.equals(str) &amp;&amp; str2!=null &amp;&amp; !&quot;&quot;.equals(str2))&#123;</div><div class="line">                    ParamES[] genTimeRangParam=new ParamES[2] ;</div><div class="line"></div><div class="line">                    ParamES paramESParamB = new ParamES(&quot;create_time&quot;, str, ParamES.ES_QUERY_MUST, ParamES.ES_TYPE_GTE);</div><div class="line">                    genTimeRangParam[0]=paramESParamB;</div><div class="line"></div><div class="line">                    ParamES paramESParamE = new ParamES(&quot;create_time&quot;, str2, ParamES.ES_QUERY_MUST, ParamES.ES_TYPE_LTE);</div><div class="line">                    genTimeRangParam[1]=paramESParamE;</div><div class="line"></div><div class="line">                    ParamES paramESGenTime=new ParamES(&quot;create_time&quot;,genTimeRangParam,ParamES.ES_QUERY_MUST,null);</div><div class="line">                    queryMap.put(&quot;create_time&quot;, paramESGenTime);</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div></pre></td></tr></table></figure>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备忘代码/">备忘代码</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-利用aspose实现html生成word-需要破解，不然下载下来的文档有红色字体水印" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/利用aspose实现html生成word-需要破解，不然下载下来的文档有红色字体水印/" class="article-date">
+      <time datetime="2018-06-22T10:22:19.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/利用aspose实现html生成word-需要破解，不然下载下来的文档有红色字体水印/">利用aspose实现html生成word(需要破解，不然下载下来的文档有红色字体水印)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>下载aspose jar包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> * 下载doc文件</div><div class="line"> * */</div><div class="line"> @RequestMapping(&quot;downloadAppnote1&quot;)</div><div class="line"> public void downloadAppnote1(@RequestParam String id, @RequestParam String filename, @RequestParam String companyId) &#123;</div><div class="line">     String ret = &quot;&quot;;</div><div class="line">     try &#123;</div><div class="line">         HashMap&lt;String, String&gt; params = new HashMap&lt;&gt;();</div><div class="line">         params.put(&quot;id&quot;, id);</div><div class="line">         params.put(&quot;filename&quot;, filename);</div><div class="line">         params.put(&quot;companyId&quot;, companyId);</div><div class="line">         if (params.containsKey(&quot;companyId&quot;) &amp;&amp; params.get(&quot;companyId&quot;).toString().length() &gt; 0) &#123;</div><div class="line">             companyId = params.get(&quot;companyId&quot;);</div><div class="line">         &#125;</div><div class="line">         Map rmap = appnoteService.getAppnote(params, companyId);</div><div class="line">         Long total = Long.valueOf(String.valueOf(rmap.get(&quot;total&quot;)));</div><div class="line">         if (total == 0) &#123;</div><div class="line">             LogUtil.error(&quot;downloadAppnote not find appnote ! id:&quot; + id + &quot; . companyId:&quot; + companyId);</div><div class="line">             //return JsonUtils.genUpdateDataReturnJsonStr(false, &quot;下载文件不存在&quot;);</div><div class="line">             return;</div><div class="line">         &#125;</div><div class="line">         List data = (List) rmap.get(&quot;data&quot;);</div><div class="line">         Map mdata = (Map) data.get(0);</div><div class="line">         String fileContent = &quot;&quot;;</div><div class="line">         for (Object str : mdata.keySet()) &#123;</div><div class="line">             if (str instanceof String) &#123;</div><div class="line">                 if (&quot;fileContent&quot;.equals(str)) &#123;</div><div class="line">                     fileContent = mdata.get(&quot;fileContent&quot;).toString();</div><div class="line">                 &#125;</div><div class="line">                 if (&quot;title&quot;.equals(str)) &#123;</div><div class="line">                     filename = mdata.get(&quot;title&quot;).toString();</div><div class="line">                 &#125;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">         String html = &quot;&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;&lt;meta charset=&apos;UTF-8&apos;/&gt;&lt;/head&gt; &lt;body&gt;&quot; + fileContent + &quot;&lt;/body&gt;&lt;/html&gt;&quot;;</div><div class="line"></div><div class="line">         Calendar cal = Calendar.getInstance();</div><div class="line">         String relativeFolderPath = &quot;/appnoteToDownload/company/&quot; + companyId + File.separator</div><div class="line">             + cal.get(Calendar.YEAR) + File.separator</div><div class="line">             + (cal.get(Calendar.MONTH) + 1) + File.separator</div><div class="line">             + cal.get(Calendar.DATE);</div><div class="line">         ;</div><div class="line">         String absoluteFolderPath = Constants.TX_NGINX_HTML_PATH + relativeFolderPath;</div><div class="line">         File folder = new File(absoluteFolderPath);</div><div class="line">         if (!folder.exists()) &#123;</div><div class="line">             folder.mkdirs();</div><div class="line">         &#125;</div><div class="line">         String absoluteFilePath = &quot;&quot;;</div><div class="line">         String file = DAOTools.getDockerTableId();</div><div class="line">         absoluteFilePath = absoluteFolderPath + File.separator + file + &quot;.doc&quot;;</div><div class="line">         Document doc = new Document();</div><div class="line">         DocumentBuilder builder = new DocumentBuilder(doc);</div><div class="line">         builder.insertHtml(html);</div><div class="line">         doc.save(absoluteFilePath, SaveOptions.createSaveOptions(SaveFormat.DOC));//生成doc文件</div><div class="line">         String relativeFilePath = relativeFolderPath + File.separator + file + &quot;.doc&quot;;</div><div class="line"></div><div class="line">         getResponse().setContentType(&quot;text/html;charset=UTF-8&quot;);</div><div class="line">         getResponse().setHeader(&quot;Content-Type&quot;, &quot;application/force-download&quot;);</div><div class="line">         getResponse().setHeader(&quot;X-Accel-Redirect&quot;, relativeFilePath);</div><div class="line">         InputStream in = new FileInputStream(absoluteFilePath);</div><div class="line">         if (getRequest().getHeader(&quot;User-Agent&quot;).toUpperCase().contains(&quot;MSIE&quot;) || getRequest().getHeader(&quot;User-Agent&quot;).toUpperCase().contains(&quot;Trident&quot;)) &#123;</div><div class="line">             filename = java.net.URLEncoder.encode(filename + &quot;.doc&quot;, &quot;UTF-8&quot;);</div><div class="line">         &#125; else &#123;</div><div class="line">             filename = new String((filename + &quot;.doc&quot;).getBytes(&quot;UTF-8&quot;), &quot;ISO-8859-1&quot;);</div><div class="line">         &#125;</div><div class="line">         getResponse().setHeader(&quot;Content-Disposition&quot;, &quot;attachment; filename=&quot; + filename);</div><div class="line">         getResponse().setContentLength(in.available());</div><div class="line">         OutputStream out = getResponse().getOutputStream();</div><div class="line">         byte[] b = new byte[1024];</div><div class="line">         int len = 0;</div><div class="line">         while ((len = in.read(b)) != -1) &#123;</div><div class="line">             out.write(b, 0, len);</div><div class="line">         &#125;</div><div class="line">         out.flush();</div><div class="line">         out.close();</div><div class="line">         in.close();</div><div class="line">         // ret = JsonUtils.genUpdateDataReturnJsonStr(html);</div><div class="line">     &#125; catch (Exception e) &#123;</div><div class="line">         LogUtil.error(e);</div><div class="line">     &#125;</div><div class="line">     // return ret;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html转doc保存/">html转doc保存</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-利用poi实现html生成word并保存" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/利用poi实现html生成word并保存/" class="article-date">
+      <time datetime="2018-06-22T10:19:45.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/利用poi实现html生成word并保存/">利用poi实现html生成word并保存</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>下载poi的jar包 此处用的3.9<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(&quot;downloadAppnote&quot;)</div><div class="line">    public void downloadAppnote(@RequestParam String id, @RequestParam String filename, @RequestParam String companyId) &#123;</div><div class="line">        try &#123;</div><div class="line">            HashMap&lt;String, String&gt; params = new HashMap&lt;&gt;();</div><div class="line">            params.put(&quot;id&quot;, id);</div><div class="line">            params.put(&quot;filename&quot;, filename);</div><div class="line">            params.put(&quot;companyId&quot;, companyId);</div><div class="line">            if (params.containsKey(&quot;companyId&quot;) &amp;&amp; params.get(&quot;companyId&quot;).toString().length() &gt; 0) &#123;</div><div class="line">                companyId = params.get(&quot;companyId&quot;);</div><div class="line">            &#125;</div><div class="line">            Map rmap = appnoteService.getAppnote(params, companyId);</div><div class="line">            Long total = Long.valueOf(String.valueOf(rmap.get(&quot;total&quot;)));</div><div class="line">            if (total == 0) &#123;</div><div class="line">                LogUtil.error(&quot;downloadAppnote not find appnote ! id:&quot; + id + &quot; . companyId:&quot; + companyId);</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            List data = (List) rmap.get(&quot;data&quot;);</div><div class="line">            Map mdata = (Map) data.get(0);</div><div class="line">            String fileContent = &quot;&quot;;</div><div class="line">            for (Object str : mdata.keySet()) &#123;</div><div class="line">                if (str instanceof String) &#123;</div><div class="line">                    if (&quot;fileContent&quot;.equals(str)) &#123;</div><div class="line">                        fileContent = mdata.get(&quot;fileContent&quot;).toString();</div><div class="line">                    &#125;</div><div class="line">                    if (&quot;title&quot;.equals(str)) &#123;</div><div class="line">                        filename = mdata.get(&quot;title&quot;).toString();</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            &lt;!--开始  以上代码是为了获取html内容--&gt;</div><div class="line">            String html = &quot;&lt;html&gt; &lt;head&gt;&lt;meta charset=&apos;UTF-8&apos;/&gt;&lt;/head&gt; &lt;body&gt;&quot; + fileContent + &quot;&lt;/body&gt;&lt;/html&gt;&quot;;</div><div class="line">            byte b[] = html.getBytes(&quot;UTF-8&quot;);</div><div class="line">            ByteArrayInputStream bais = new ByteArrayInputStream(b);</div><div class="line">            POIFSFileSystem poifs = new POIFSFileSystem();</div><div class="line">            DirectoryEntry directory = poifs.getRoot();</div><div class="line">            directory.createDocument(&quot;WordDocument&quot;, bais);</div><div class="line">            getResponse().reset();</div><div class="line">            if (getRequest().getHeader(&quot;User-Agent&quot;).toUpperCase().contains(&quot;MSIE&quot;) || getRequest().getHeader(&quot;User-Agent&quot;).toUpperCase().contains(&quot;Trident&quot;)) &#123;</div><div class="line">                filename = java.net.URLEncoder.encode(filename + &quot;.doc&quot;, &quot;UTF-8&quot;);</div><div class="line">            &#125; else &#123;</div><div class="line">                filename = new String((filename + &quot;.doc&quot;).getBytes(&quot;UTF-8&quot;), &quot;ISO-8859-1&quot;);</div><div class="line">            &#125;</div><div class="line">            getResponse().setHeader(&quot;Content-Disposition&quot;, &quot;attachment;filename=&quot; + filename);</div><div class="line">            getResponse().setContentType(&quot;application/msword&quot;);</div><div class="line">            OutputStream ostream = getResponse().getOutputStream();</div><div class="line">            poifs.writeFilesystem(ostream);</div><div class="line">            bais.close();</div><div class="line">            ostream.close();</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            LogUtil.error(e);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html转doc保存/">html转doc保存</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-关于作用域" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -308,632 +900,6 @@
 
 
   
-    <article id="post-关于this" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/关于this/" class="article-date">
-      <time datetime="2017-12-06T11:06:25.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/关于this/">关于this</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h2 id="第一章-关于this"><a href="#第一章-关于this" class="headerlink" title="第一章 关于this"></a>第一章 关于this</h2><blockquote>
-<p>this既不指向函数自身也不指向函数的词法作用域，this实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。</p>
-</blockquote>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/06/关于this/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-JavaScript调试技巧" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/JavaScript调试技巧/" class="article-date">
-      <time datetime="2017-12-06T11:05:01.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/JavaScript调试技巧/">JavaScript调试技巧</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>1.debugger</p>
-<blockquote>
-<p>除了console.log, debugger是我们最喜欢、快速且肮脏的调试工具。执行代码后，Chrome会在执行时自动停止。你甚至可以把它封装成条件，只在需要时才运行。</p>
-</blockquote>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/06/JavaScript调试技巧/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-定时器" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/定时器/" class="article-date">
-      <time datetime="2017-12-06T10:54:54.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/定时器/">定时器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h1><blockquote>
-<p>setTimeout:用于设置一个等待时间，等经过这段时间之后才让一个函数运行</p>
-</blockquote>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/06/定时器/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery简单动画方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/jQuery简单动画方法/" class="article-date">
-      <time datetime="2017-12-06T10:54:34.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/jQuery简单动画方法/">jQuery简单动画方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h1><blockquote>
-<p>淡出淡入（原理是改变css中的opacity不透明性）</p>
-</blockquote>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/06/jQuery简单动画方法/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery常用方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/jQuery常用方法/" class="article-date">
-      <time datetime="2017-12-06T10:54:11.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/jQuery常用方法/">jQuery常用方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="操作DOM方法"><a href="#操作DOM方法" class="headerlink" title="操作DOM方法"></a>操作DOM方法</h1><h5 id="操作DOM"><a href="#操作DOM" class="headerlink" title="操作DOM"></a>操作DOM</h5><blockquote>
-<p>detach() 把你的元素存入一个数组里</p>
-<p>remove() 直接删除</p>
-</blockquote>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/06/jQuery常用方法/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery常用的选择元素方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/jQuery常用的选择元素方法/" class="article-date">
-      <time datetime="2017-12-06T10:53:45.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/jQuery常用的选择元素方法/">jQuery常用的选择元素方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="选择元素"><a href="#选择元素" class="headerlink" title="选择元素"></a>选择元素</h1><blockquote>
-<p>parent() 查找父级元素</p>
-<p>parents() 遍历所有父元素</p>
-<p>children() 查找子元素</p>
-<p>prev() 查找同级前一个元素</p>
-<p>next() 查找同级后一个元素</p>
-<p>siblings() 遍历所有同级元素</p>
-</blockquote>
-
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-jQuery事件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/jQuery事件/" class="article-date">
-      <time datetime="2017-12-06T10:53:03.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/jQuery事件/">jQuery事件</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="jQuery事件"><a href="#jQuery事件" class="headerlink" title="jQuery事件"></a>jQuery事件</h1><h5 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h5><blockquote>
-<p>error 报错时</p>
-<p>resize 重置窗口大小时</p>
-<p>scroll 元素滚动</p>
-</blockquote>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/06/jQuery事件/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Json对象与Json字符串互转" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/Json对象与Json字符串互转/" class="article-date">
-      <time datetime="2017-12-06T10:52:09.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/Json对象与Json字符串互转/">Json对象与Json字符串互转</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Json对象与Json字符串互转"><a href="#Json对象与Json字符串互转" class="headerlink" title="Json对象与Json字符串互转"></a>Json对象与Json字符串互转</h1><p>1.jQuery支持的转换方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.parseJson(jsonstr)</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/06/Json对象与Json字符串互转/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js刷新当前页面方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/js刷新当前页面方法/" class="article-date">
-      <time datetime="2017-12-06T10:47:53.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/js刷新当前页面方法/">js刷新当前页面方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="js刷新当前页面方法"><a href="#js刷新当前页面方法" class="headerlink" title="js刷新当前页面方法"></a>js刷新当前页面方法</h1><ul>
-<li>reload方法：强迫浏览器刷新当前页面，参数为可选参数，默认为false,从客户端缓存里面取当前页。true,则是以Get方式从服务端去最新的页面，相当于F5</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">location.reload();</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/06/js刷新当前页面方法/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -944,7 +910,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2017 宋丽妹
+                &copy; 2018 宋丽妹
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
