@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>七夕</title>
+    <link rel="stylesheet" type="text/css" href="css/3D.css">
+</head>
+<body>
+<audio src="img/music.mp4" autoplay></audio>
+<div class='heart3d'>
+    <div class='rib1'></div>
+    <div class='rib2'></div>
+    <div class='rib3'></div>
+    <div class='rib4'></div>
+    <div class='rib5'></div>
+    <div class='rib6'></div>
+    <div class='rib7'></div>
+    <div class='rib8'></div>
+    <div class='rib9'></div>
+    <div class='rib10'></div>
+    <div class='rib11'></div>
+    <div class='rib12'></div>
+    <div class='rib13'></div>
+    <div class='rib14'></div>
+    <div class='rib15'></div>
+    <div class='rib16'></div>
+    <div class='rib17'></div>
+    <div class='rib18'></div>
+    <div class='rib19'></div>
+    <div class='rib20'></div>
+    <div class='rib21'></div>
+    <div class='rib22'></div>
+    <div class='rib23'></div>
+    <div class='rib24'></div>
+    <div class='rib25'></div>
+    <div class='rib26'></div>
+    <div class='rib27'></div>
+    <div class='rib28'></div>
+    <div class='rib29'></div>
+    <div class='rib30'></div>
+    <div class='rib31'></div>
+    <div class='rib32'></div>
+    <div class='rib33'></div>
+    <div class='rib34'></div>
+    <div class='rib35'></div>
+    <div class='rib36'></div>
+    <div class="per">
+        <div class="img"><img width="100" height="100" src="img/1.gif"/></div>
+        <div class="img"><img width="100" height="100" src="img/1.jpg"/></div>
+        <div class="img"><img width="100" height="100" src="img/2.png"/></div>
+        <div class="img"><img width="100" height="100" src="img/1.jpg"/></div>
+        <div class="img"><img width="100" height="100" src="img/1.jpg"/></div>
+        <div class="img"><img width="100" height="100" src="img/1.jpg"/></div>
+    </div>
+</div>
+
+<div id = "gif">
+    <div id="imgGif">
+        <img src="img/1.gif">
+    </div>
+</div>
+
+<div id="display"></div>
+<script>
+
+    var i = 0;
+    var str = "浪漫来的猝不及防，前年七夕，是我没珍惜，去年七夕，是你加班到半夜，今年呢，土味情话撩起来";
+    window.onload = function typing() {
+        var mydiv = document.getElementById("display");
+        mydiv.innerHTML += str.charAt(i);
+        var oBtn = document.getElementById('btn');
+        i++;
+        var id = setTimeout(typing, 100);
+        if (i == str.length) {
+            clearTimeout(id);
+            mydiv.value = "";
+            mydiv.innerHTML += ""
+        }
+
+
+    }
+</script>
+
+</body>
+</html>
