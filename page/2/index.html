@@ -154,7 +154,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/HTML-CSS总结/" style="font-size: 10px;">HTML+CSS总结</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/Maven/" style="font-size: 16.67px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/html转doc保存/" style="font-size: 13.33px;">html转doc保存</a> <a href="/tags/jQuery/" style="font-size: 20px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a> <a href="/tags/处理字符串/" style="font-size: 10px;">处理字符串</a> <a href="/tags/备忘代码/" style="font-size: 20px;">备忘代码</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a>
+                        <a href="/tags/HTML-CSS总结/" style="font-size: 10px;">HTML+CSS总结</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/Maven/" style="font-size: 16.67px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/html转doc保存/" style="font-size: 13.33px;">html转doc保存</a> <a href="/tags/jQuery/" style="font-size: 20px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a> <a href="/tags/处理字符串/" style="font-size: 10px;">处理字符串</a> <a href="/tags/备忘代码/" style="font-size: 20px;">备忘代码</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a>
                     </div>
                 </section>
                 
@@ -237,6 +237,203 @@
     </div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-利用aspose实现html生成word-需要破解，不然下载下来的文档有红色字体水印" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/利用aspose实现html生成word-需要破解，不然下载下来的文档有红色字体水印/" class="article-date">
+      <time datetime="2018-06-22T10:22:19.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/利用aspose实现html生成word-需要破解，不然下载下来的文档有红色字体水印/">利用aspose实现html生成word(需要破解，不然下载下来的文档有红色字体水印)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>下载aspose jar包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> * 下载doc文件</div><div class="line"> * */</div><div class="line"> @RequestMapping(&quot;downloadAppnote1&quot;)</div><div class="line"> public void downloadAppnote1(@RequestParam String id, @RequestParam String filename, @RequestParam String companyId) &#123;</div><div class="line">     String ret = &quot;&quot;;</div><div class="line">     try &#123;</div><div class="line">         HashMap&lt;String, String&gt; params = new HashMap&lt;&gt;();</div><div class="line">         params.put(&quot;id&quot;, id);</div><div class="line">         params.put(&quot;filename&quot;, filename);</div><div class="line">         params.put(&quot;companyId&quot;, companyId);</div><div class="line">         if (params.containsKey(&quot;companyId&quot;) &amp;&amp; params.get(&quot;companyId&quot;).toString().length() &gt; 0) &#123;</div><div class="line">             companyId = params.get(&quot;companyId&quot;);</div><div class="line">         &#125;</div><div class="line">         Map rmap = appnoteService.getAppnote(params, companyId);</div><div class="line">         Long total = Long.valueOf(String.valueOf(rmap.get(&quot;total&quot;)));</div><div class="line">         if (total == 0) &#123;</div><div class="line">             LogUtil.error(&quot;downloadAppnote not find appnote ! id:&quot; + id + &quot; . companyId:&quot; + companyId);</div><div class="line">             //return JsonUtils.genUpdateDataReturnJsonStr(false, &quot;下载文件不存在&quot;);</div><div class="line">             return;</div><div class="line">         &#125;</div><div class="line">         List data = (List) rmap.get(&quot;data&quot;);</div><div class="line">         Map mdata = (Map) data.get(0);</div><div class="line">         String fileContent = &quot;&quot;;</div><div class="line">         for (Object str : mdata.keySet()) &#123;</div><div class="line">             if (str instanceof String) &#123;</div><div class="line">                 if (&quot;fileContent&quot;.equals(str)) &#123;</div><div class="line">                     fileContent = mdata.get(&quot;fileContent&quot;).toString();</div><div class="line">                 &#125;</div><div class="line">                 if (&quot;title&quot;.equals(str)) &#123;</div><div class="line">                     filename = mdata.get(&quot;title&quot;).toString();</div><div class="line">                 &#125;</div><div class="line">             &#125;</div><div class="line">         &#125;</div><div class="line">         String html = &quot;&lt;!DOCTYPE html&gt; &lt;html&gt; &lt;head&gt;&lt;meta charset=&apos;UTF-8&apos;/&gt;&lt;/head&gt; &lt;body&gt;&quot; + fileContent + &quot;&lt;/body&gt;&lt;/html&gt;&quot;;</div><div class="line"></div><div class="line">         Calendar cal = Calendar.getInstance();</div><div class="line">         String relativeFolderPath = &quot;/appnoteToDownload/company/&quot; + companyId + File.separator</div><div class="line">             + cal.get(Calendar.YEAR) + File.separator</div><div class="line">             + (cal.get(Calendar.MONTH) + 1) + File.separator</div><div class="line">             + cal.get(Calendar.DATE);</div><div class="line">         ;</div><div class="line">         String absoluteFolderPath = Constants.TX_NGINX_HTML_PATH + relativeFolderPath;</div><div class="line">         File folder = new File(absoluteFolderPath);</div><div class="line">         if (!folder.exists()) &#123;</div><div class="line">             folder.mkdirs();</div><div class="line">         &#125;</div><div class="line">         String absoluteFilePath = &quot;&quot;;</div><div class="line">         String file = DAOTools.getDockerTableId();</div><div class="line">         absoluteFilePath = absoluteFolderPath + File.separator + file + &quot;.doc&quot;;</div><div class="line">         Document doc = new Document();</div><div class="line">         DocumentBuilder builder = new DocumentBuilder(doc);</div><div class="line">         builder.insertHtml(html);</div><div class="line">         doc.save(absoluteFilePath, SaveOptions.createSaveOptions(SaveFormat.DOC));//生成doc文件</div><div class="line">         String relativeFilePath = relativeFolderPath + File.separator + file + &quot;.doc&quot;;</div><div class="line"></div><div class="line">         getResponse().setContentType(&quot;text/html;charset=UTF-8&quot;);</div><div class="line">         getResponse().setHeader(&quot;Content-Type&quot;, &quot;application/force-download&quot;);</div><div class="line">         getResponse().setHeader(&quot;X-Accel-Redirect&quot;, relativeFilePath);</div><div class="line">         InputStream in = new FileInputStream(absoluteFilePath);</div><div class="line">         if (getRequest().getHeader(&quot;User-Agent&quot;).toUpperCase().contains(&quot;MSIE&quot;) || getRequest().getHeader(&quot;User-Agent&quot;).toUpperCase().contains(&quot;Trident&quot;)) &#123;</div><div class="line">             filename = java.net.URLEncoder.encode(filename + &quot;.doc&quot;, &quot;UTF-8&quot;);</div><div class="line">         &#125; else &#123;</div><div class="line">             filename = new String((filename + &quot;.doc&quot;).getBytes(&quot;UTF-8&quot;), &quot;ISO-8859-1&quot;);</div><div class="line">         &#125;</div><div class="line">         getResponse().setHeader(&quot;Content-Disposition&quot;, &quot;attachment; filename=&quot; + filename);</div><div class="line">         getResponse().setContentLength(in.available());</div><div class="line">         OutputStream out = getResponse().getOutputStream();</div><div class="line">         byte[] b = new byte[1024];</div><div class="line">         int len = 0;</div><div class="line">         while ((len = in.read(b)) != -1) &#123;</div><div class="line">             out.write(b, 0, len);</div><div class="line">         &#125;</div><div class="line">         out.flush();</div><div class="line">         out.close();</div><div class="line">         in.close();</div><div class="line">         // ret = JsonUtils.genUpdateDataReturnJsonStr(html);</div><div class="line">     &#125; catch (Exception e) &#123;</div><div class="line">         LogUtil.error(e);</div><div class="line">     &#125;</div><div class="line">     // return ret;</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html转doc保存/">html转doc保存</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-利用poi实现html生成word并保存" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/06/22/利用poi实现html生成word并保存/" class="article-date">
+      <time datetime="2018-06-22T10:19:45.000Z" itemprop="datePublished">2018-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/22/利用poi实现html生成word并保存/">利用poi实现html生成word并保存</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>下载poi的jar包 此处用的3.9<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(&quot;downloadAppnote&quot;)</div><div class="line">    public void downloadAppnote(@RequestParam String id, @RequestParam String filename, @RequestParam String companyId) &#123;</div><div class="line">        try &#123;</div><div class="line">            HashMap&lt;String, String&gt; params = new HashMap&lt;&gt;();</div><div class="line">            params.put(&quot;id&quot;, id);</div><div class="line">            params.put(&quot;filename&quot;, filename);</div><div class="line">            params.put(&quot;companyId&quot;, companyId);</div><div class="line">            if (params.containsKey(&quot;companyId&quot;) &amp;&amp; params.get(&quot;companyId&quot;).toString().length() &gt; 0) &#123;</div><div class="line">                companyId = params.get(&quot;companyId&quot;);</div><div class="line">            &#125;</div><div class="line">            Map rmap = appnoteService.getAppnote(params, companyId);</div><div class="line">            Long total = Long.valueOf(String.valueOf(rmap.get(&quot;total&quot;)));</div><div class="line">            if (total == 0) &#123;</div><div class="line">                LogUtil.error(&quot;downloadAppnote not find appnote ! id:&quot; + id + &quot; . companyId:&quot; + companyId);</div><div class="line">                return;</div><div class="line">            &#125;</div><div class="line">            List data = (List) rmap.get(&quot;data&quot;);</div><div class="line">            Map mdata = (Map) data.get(0);</div><div class="line">            String fileContent = &quot;&quot;;</div><div class="line">            for (Object str : mdata.keySet()) &#123;</div><div class="line">                if (str instanceof String) &#123;</div><div class="line">                    if (&quot;fileContent&quot;.equals(str)) &#123;</div><div class="line">                        fileContent = mdata.get(&quot;fileContent&quot;).toString();</div><div class="line">                    &#125;</div><div class="line">                    if (&quot;title&quot;.equals(str)) &#123;</div><div class="line">                        filename = mdata.get(&quot;title&quot;).toString();</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            &lt;!--开始  以上代码是为了获取html内容--&gt;</div><div class="line">            String html = &quot;&lt;html&gt; &lt;head&gt;&lt;meta charset=&apos;UTF-8&apos;/&gt;&lt;/head&gt; &lt;body&gt;&quot; + fileContent + &quot;&lt;/body&gt;&lt;/html&gt;&quot;;</div><div class="line">            byte b[] = html.getBytes(&quot;UTF-8&quot;);</div><div class="line">            ByteArrayInputStream bais = new ByteArrayInputStream(b);</div><div class="line">            POIFSFileSystem poifs = new POIFSFileSystem();</div><div class="line">            DirectoryEntry directory = poifs.getRoot();</div><div class="line">            directory.createDocument(&quot;WordDocument&quot;, bais);</div><div class="line">            getResponse().reset();</div><div class="line">            if (getRequest().getHeader(&quot;User-Agent&quot;).toUpperCase().contains(&quot;MSIE&quot;) || getRequest().getHeader(&quot;User-Agent&quot;).toUpperCase().contains(&quot;Trident&quot;)) &#123;</div><div class="line">                filename = java.net.URLEncoder.encode(filename + &quot;.doc&quot;, &quot;UTF-8&quot;);</div><div class="line">            &#125; else &#123;</div><div class="line">                filename = new String((filename + &quot;.doc&quot;).getBytes(&quot;UTF-8&quot;), &quot;ISO-8859-1&quot;);</div><div class="line">            &#125;</div><div class="line">            getResponse().setHeader(&quot;Content-Disposition&quot;, &quot;attachment;filename=&quot; + filename);</div><div class="line">            getResponse().setContentType(&quot;application/msword&quot;);</div><div class="line">            OutputStream ostream = getResponse().getOutputStream();</div><div class="line">            poifs.writeFilesystem(ostream);</div><div class="line">            bais.close();</div><div class="line">            ostream.close();</div><div class="line">        &#125; catch (Exception e) &#123;</div><div class="line">            LogUtil.error(e);</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/java/">java</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html转doc保存/">html转doc保存</a></li></ul>
+    </div>
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-关于作用域" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/12/06/关于作用域/" class="article-date">
+      <time datetime="2017-12-06T11:12:18.000Z" itemprop="datePublished">2017-12-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/06/关于作用域/">关于作用域</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="第一章-作用域是什么"><a href="#第一章-作用域是什么" class="headerlink" title="第一章 作用域是什么"></a>第一章 作用域是什么</h2><ul>
+<li>（1）作用域是一套规则，用于确定在何处以及如何查找变量。</li>
+<li>（2）如果查找的目的是为变量进行赋值，那么就会使用LHS查询；如果查询的目的是获取变量的值，就会使用RHS查询</li>
+<li>（3）赋值操作会导致LHS查询。=操作符或调用函数时传入参数的操作都会导致关联作用域的赋值操作</li>
+</ul>
+          
+      
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/web前端/">web前端</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/12/06/关于作用域/#more">去看看 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-关于this" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -726,210 +923,9 @@
 
 
   
-    <article id="post-Json对象与Json字符串互转" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/Json对象与Json字符串互转/" class="article-date">
-      <time datetime="2017-12-06T10:52:09.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/Json对象与Json字符串互转/">Json对象与Json字符串互转</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="Json对象与Json字符串互转"><a href="#Json对象与Json字符串互转" class="headerlink" title="Json对象与Json字符串互转"></a>Json对象与Json字符串互转</h1><p>1.jQuery支持的转换方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.parseJson(jsonstr)</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jQuery/">jQuery</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/06/Json对象与Json字符串互转/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-js刷新当前页面方法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/12/06/js刷新当前页面方法/" class="article-date">
-      <time datetime="2017-12-06T10:47:53.000Z" itemprop="datePublished">2017-12-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/06/js刷新当前页面方法/">js刷新当前页面方法</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="js刷新当前页面方法"><a href="#js刷新当前页面方法" class="headerlink" title="js刷新当前页面方法"></a>js刷新当前页面方法</h1><ul>
-<li>reload方法：强迫浏览器刷新当前页面，参数为可选参数，默认为false,从客户端缓存里面取当前页。true,则是以Get方式从服务端去最新的页面，相当于F5</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">location.reload();</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/web前端/">web前端</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/12/06/js刷新当前页面方法/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/10/12/git/" class="article-date">
-      <time datetime="2017-10-12T10:42:00.000Z" itemprop="datePublished">2017-10-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/12/git/">git</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <h1 id="git"><a href="#git" class="headerlink" title="git"></a>git</h1><h6 id="重新设置文本编辑器（一般可能是Vi或者是Vim）"><a href="#重新设置文本编辑器（一般可能是Vi或者是Vim）" class="headerlink" title="重新设置文本编辑器（一般可能是Vi或者是Vim）"></a>重新设置文本编辑器（一般可能是Vi或者是Vim）</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git config --global core.editor emacs</div></pre></td></tr></table></figure>
-          
-      
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2017/10/12/git/#more">去看看 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>
