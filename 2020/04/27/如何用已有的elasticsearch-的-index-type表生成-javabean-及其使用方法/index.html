@@ -3,25 +3,37 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Maven环境搭建 | 宋丽妹的博客</title>
+  <title>如何用已有的elasticsearch 的 index type表生成 javabean 及其使用方法 | 宋丽妹的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Maven搭建maven环境1、下载apache-maven-3.3.9包，2、解压到指定目录。本机解压目录D:\devetop-ruanjian\3、配置环境变量">
-<meta name="keywords" content="Maven">
+  <meta name="description" content="阅读本文章前请先阅读 《如何利用 javabean 自动建立 elasticsearch 的 index type document 》  在D:\Projects\zinglabs-gitlab\zingbiz\zing-domain\src\main\java\com\zingbiz\domain\entityGenerator\EntityGenerator.java文件里有个main方法，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Maven环境搭建">
-<meta property="og:url" content="http://dreammei.me/2016/11/19/Maven环境搭建/index.html">
+<meta property="og:title" content="如何用已有的elasticsearch 的 index type表生成 javabean 及其使用方法">
+<meta property="og:url" content="http://dreammei.me/2020/04/27/如何用已有的elasticsearch-的-index-type表生成-javabean-及其使用方法/index.html">
 <meta property="og:site_name" content="宋丽妹的博客">
-<meta property="og:description" content="Maven搭建maven环境1、下载apache-maven-3.3.9包，2、解压到指定目录。本机解压目录D:\devetop-ruanjian\3、配置环境变量">
-<meta property="og:image" content="http://dreammei.me/img/maven1.png">
-<meta property="og:image" content="http://dreammei.me/img/maven2.png">
-<meta property="og:image" content="http://dreammei.me/img/maven3.png">
-<meta property="og:image" content="http://dreammei.me/img/maven4.png">
-<meta property="og:image" content="http://dreammei.me/img/maven5.png">
-<meta property="og:updated_time" content="2017-06-19T07:29:49.937Z">
+<meta property="og:description" content="阅读本文章前请先阅读 《如何利用 javabean 自动建立 elasticsearch 的 index type document 》  在D:\Projects\zinglabs-gitlab\zingbiz\zing-domain\src\main\java\com\zingbiz\domain\entityGenerator\EntityGenerator.java文件里有个main方法，">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://dreammei.me/img/102501.png">
+<meta property="og:image" content="http://dreammei.me/img/102502.png">
+<meta property="og:image" content="http://dreammei.me/img/102503.png">
+<meta property="og:image" content="http://dreammei.me/img/102504.png">
+<meta property="og:image" content="http://dreammei.me/img/102505.png">
+<meta property="og:image" content="http://dreammei.me/img/102506.png">
+<meta property="og:image" content="http://dreammei.me/img/102507.png">
+<meta property="og:image" content="http://dreammei.me/img/102508.png">
+<meta property="og:image" content="http://dreammei.me/img/102509.png">
+<meta property="og:image" content="http://dreammei.me/img/102510.png">
+<meta property="og:image" content="http://dreammei.me/img/102511.png">
+<meta property="og:image" content="http://dreammei.me/img/102512.png">
+<meta property="og:image" content="http://dreammei.me/img/102513.png">
+<meta property="og:image" content="http://dreammei.me/img/102514.png">
+<meta property="og:image" content="http://dreammei.me/img/102515.png">
+<meta property="og:image" content="http://dreammei.me/img/102516.png">
+<meta property="og:image" content="http://dreammei.me/img/102518.png">
+<meta property="og:updated_time" content="2018-10-25T09:12:35.537Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Maven环境搭建">
-<meta name="twitter:description" content="Maven搭建maven环境1、下载apache-maven-3.3.9包，2、解压到指定目录。本机解压目录D:\devetop-ruanjian\3、配置环境变量">
-<meta name="twitter:image" content="http://dreammei.me/img/maven1.png">
+<meta name="twitter:title" content="如何用已有的elasticsearch 的 index type表生成 javabean 及其使用方法">
+<meta name="twitter:description" content="阅读本文章前请先阅读 《如何利用 javabean 自动建立 elasticsearch 的 index type document 》  在D:\Projects\zinglabs-gitlab\zingbiz\zing-domain\src\main\java\com\zingbiz\domain\entityGenerator\EntityGenerator.java文件里有个main方法，">
+<meta name="twitter:image" content="http://dreammei.me/img/102501.png">
   
     <link rel="alternative" href="/atom.xml" title="宋丽妹的博客" type="application/atom+xml">
   
@@ -112,6 +124,7 @@
                         
                         <li>关于我</li>
                         
+						
                     </ul>
                 </div>
             </div>
@@ -157,7 +170,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/Maven/" style="font-size: 15px;">Maven</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 20px;">spring</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a>
+                        <a href="/tags/HTML-CSS总结/" style="font-size: 10px;">HTML+CSS总结</a> <a href="/tags/Io/" style="font-size: 10px;">Io</a> <a href="/tags/Maven/" style="font-size: 16.67px;">Maven</a> <a href="/tags/MyBatis/" style="font-size: 10px;">MyBatis</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/equals和/" style="font-size: 10px;">equals和==</a> <a href="/tags/html转doc保存/" style="font-size: 13.33px;">html转doc保存</a> <a href="/tags/jQuery/" style="font-size: 20px;">jQuery</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/spring/" style="font-size: 16.67px;">spring</a> <a href="/tags/springMVC/" style="font-size: 10px;">springMVC</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/struts2/" style="font-size: 10px;">struts2</a> <a href="/tags/this关键字/" style="font-size: 10px;">this关键字</a> <a href="/tags/单例设计模式/" style="font-size: 10px;">单例设计模式</a> <a href="/tags/处理字符串/" style="font-size: 10px;">处理字符串</a> <a href="/tags/备忘代码/" style="font-size: 20px;">备忘代码</a> <a href="/tags/工具/" style="font-size: 10px;">工具</a> <a href="/tags/序列化/" style="font-size: 10px;">序列化</a>
                     </div>
                 </section>
                 
@@ -239,11 +252,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Maven环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-如何用已有的elasticsearch-的-index-type表生成-javabean-及其使用方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/11/19/Maven环境搭建/" class="article-date">
-      <time datetime="2016-11-19T07:17:30.000Z" itemprop="datePublished">2016-11-19</time>
+      <a href="/2020/04/27/如何用已有的elasticsearch-的-index-type表生成-javabean-及其使用方法/" class="article-date">
+      <time datetime="2020-04-27T03:28:11.178Z" itemprop="datePublished">2020-04-27</time>
 </a>
     </div>
   
@@ -256,7 +269,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Maven环境搭建
+      如何用已有的elasticsearch 的 index type表生成 javabean 及其使用方法
     </h1>
   
 
@@ -265,15 +278,11 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/工具/">工具</a>
+    <a class="article-category-link" href="/categories/elasticsearch/">elasticsearch</a>
     </div>
 
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Maven/">Maven</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -281,23 +290,32 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h1><h2 id="搭建maven环境"><a href="#搭建maven环境" class="headerlink" title="搭建maven环境"></a>搭建maven环境</h2><p>1、下载apache-maven-3.3.9包，<br>2、解压到指定目录。本机解压目录D:\devetop-ruanjian\<br>3、配置环境变量</p>
+        <p>阅读本文章前请先阅读 《如何利用 javabean 自动建立 elasticsearch 的 index type document 》 </p>
+<p>在D:\Projects\zinglabs-gitlab\zingbiz\zing-domain\src\main\java\com\zingbiz\domain\entityGenerator\EntityGenerator.java文件里有个main方法，将你已有的index文件的名字赋值index变量，并运行此方法。 如图：</p>
 <a id="more"></a>
-<p>右击我的电脑–&gt;属性–&gt;高级系统设置–&gt;环境变量–&gt;新建环境变量，如图所示：<br><img src="/img/maven1.png" alt="alt tu1" title="配置环境变量"></p>
-<p>4、编辑环境变量到path中：<br><img src="/img/maven2.png" alt="alt tu2" title="配置环境变量"></p>
-<p>5、测试是否配置成功<br>打开cmd窗口，输入 mvn -v回车，出现如下字样，说明配置成功<br><img src="/img/maven3.png" alt="alt tu3" title="配置环境变量"></p>
-<h2 id="配置文件的修改内容："><a href="#配置文件的修改内容：" class="headerlink" title="配置文件的修改内容："></a>配置文件的修改内容：</h2><ul>
-<li><p>修改默认maven本地仓库保存地址</p>
-<p>进入maven文件地址，打开conf中的settings.xml文件 （以本机为例:）</p>
-</li>
-</ul>
-<hr>
-<p>D:\devetop-ruanjian\apache-maven-3.3.9\conf,<br>修改如下图所示：图4<br>E:\maven<br><img src="/img/maven4.png" alt="alt tu4" title="修改配置文件"></p>
-<ul>
-<li>修改maven下载文件地址，改为阿里巴巴，如下设置，</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;mirror&gt;</div><div class="line">        &lt;id&gt;nexus-aliyun&lt;/id&gt;</div><div class="line">        &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;</div><div class="line">        &lt;name&gt;Nexus aliyun&lt;/name&gt;</div><div class="line">        &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;</div><div class="line">    &lt;/mirror&gt;</div></pre></td></tr></table></figure>
-<p><img src="/img/maven5.png" alt="alt tu5" title="修改配置文件"></p>
+<p><img src="/img/102501.png" alt="alt tu3"></p>
+<p>我要将index companys_v2 里的type生成对应的javabean,运行此方法后就会在zingbiz/zing-domain/src/main/java/com/zingbiz/domain/entity这个包下生成companys 包文件，里面有type对应的各个javabean文件.如图：</p>
+<p><img src="/img/102502.png" alt="alt tu3"></p>
+<p>刚生成的javabean文件是这样的:<br><img src="/img/102503.png" alt="alt tu3"></p>
+<p>为了满足我们的需求我们要给它加上些注解。如图：<br><img src="/img/102504.png" alt="alt tu3"></p>
+<p>@ApiModelProperty,@ESDocument,@TypeVersion,@ApiModel 这些注解在上文《如何利用 javabean 自动建立 elasticsearch 的 index type document 》都有介绍，这里就不再赘述。这里说下以下几个：<br>@Data 该注解使用在类上，该注解会提供getter、setter、equals、canEqual、hashCode、toString方法。<br>@Accessors(chain = true) 该注解使用在类上，就可以对javabean进行链式调用。例如：Student student = new Student()<br>.setAge(24)<br>.setName(“zs”);<br>@PrimaryId 该注解主要是对唯一标识id的注解（一定要有）<br>在生成的javabean包下建立Index.java。如图：<br><img src="/img/102505.png" alt="alt tu3"></p>
+<p>@IndexDiscription 该注解主要是对应index的名字与版本号<br>JavaBean的使用<br>建自己模块的包文件及依赖，例如：其他应用模块要有的包和文件（与原来建模块基本相似）：<br><img src="/img/102506.png" alt="alt tu3"></p>
+<p><img src="/img/102507.png" alt="alt tu3"></p>
+<p>这里重点介绍一下repository包及包里的文件<br><img src="/img/102508.png" alt="alt tu3"></p>
+<p>我们要用JavaBean，就要在service目录下建一个repository包，此包内要定义一个接口继承ZingRepository&lt;&gt;类。此接口内可以什么都不写，因为在ZingRepository接口内已经实现基本使用的增删改查方法：<br><img src="/img/102509.png" alt="alt tu3"></p>
+<p>同时兼顾了以前对ES的一些操作：<br><img src="/img/102510.png" alt="alt tu3"></p>
+<p>如果发现还满足不了自己的需求，就在自己定义的接口内写： </p>
+<p><img src="/img/102511.png" alt="alt tu3"></p>
+<p>上面方法里传入的pageWrapper是封装的routing，pageNumber，pageSize </p>
+<p><img src="/img/102512.png" alt="alt tu3"></p>
+<p>注：如果没有复杂的业务逻辑可以不建service包，看自己的使用场景。<br><img src="/img/102513.png" alt="alt tu3"></p>
+<p>一切准备就绪，就可以写我们的业务代码了. 先看几个例子： </p>
+<p><img src="/img/102514.png" alt="alt tu3"></p>
+<p><img src="/img/102515.png" alt="alt tu3"></p>
+<p><img src="/img/102516.png" alt="alt tu3"></p>
+<p>![alt tu3][1025017]</p>
+<p>这些方法用的就是像Spring Data JPA 规范方法的名字，根据符合规范的名字来确定方法需要实现什么样的逻辑。比如，当你看到 UserDao.findUserById() 这样一个方法声明，大致应该能判断出这是根据给定条件的id查询出满足条件的 UserDao对象。在查询时，通常需要同时根据多个属性进行查询，且查询的条件也格式各样（大于某个值、在某个范围等等），为此提供了一些表达条件查询的关键字:<br>And— 等价于 SQL 中的 and 关键字，比如 findByUsernameAndPassword(String user, Striang pwd)；<br>BETWEEN— 等价于 SQL 中的 between 关键字，比如 findBySalaryBetween()；<br>LESS_THAN— 等价于 SQL 中的 “&lt;”，比如 findBySalaryLessThan()；<br>GREATER_THAN— 等价于 SQL 中的”&gt;”，比如 findBySalaryGreaterThan()； 关键词的具体情况请在QuerydslZingRepository文件中查阅：<br><img src="/img/102518.png" alt="alt tu3"></p>
+<p>图中红线标出来的的是以提供的关键词，其他关键词看需求再进行补充；<br>总结：<br>在 zingbiz/zing-domain/src/main/java/com/zingbiz/domain/entity 这个包下建立自己模块的实体<br>在 zingbiz/zing-domain/src/main/java/com/zingbiz/domain/entity 这个包下建立自己模块的Index.java<br>用JavaBean创建自己的index type，即调用自己initService<br>建自己模块的包文件及依赖;<br>建一个repository包，此包内要定义一个接口继承ZingRepository&lt;&gt;类<br>写自己的业务代码；<br>注：查询字段小于三个的时候，尽量不要用findByAll,可以用And连接你要查询的字段；</p>
 
       
       
@@ -352,13 +370,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/11/19/Maven环境搭建/">Maven环境搭建</a></p>
+        <p><span>本文标题:</span><a href="/2020/04/27/如何用已有的elasticsearch-的-index-type表生成-javabean-及其使用方法/">如何用已有的elasticsearch 的 index type表生成 javabean 及其使用方法</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 宋丽妹 的个人博客">宋丽妹</a></p>
-        <p><span>发布时间:</span>2016年11月19日 - 15时17分</p>
-        <p><span>最后更新:</span>2017年06月19日 - 15时29分</p>
+        <p><span>发布时间:</span>2020年04月27日 - 11时28分</p>
+        <p><span>最后更新:</span>2018年10月25日 - 17时12分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/11/19/Maven环境搭建/" title="Maven环境搭建">http://dreammei.me/2016/11/19/Maven环境搭建/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://dreammei.me/2016/11/19/Maven环境搭建/　　作者: 宋丽妹" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2020/04/27/如何用已有的elasticsearch-的-index-type表生成-javabean-及其使用方法/" title="如何用已有的elasticsearch 的 index type表生成 javabean 及其使用方法">http://dreammei.me/2020/04/27/如何用已有的elasticsearch-的-index-type表生成-javabean-及其使用方法/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://dreammei.me/2020/04/27/如何用已有的elasticsearch-的-index-type表生成-javabean-及其使用方法/　　作者: 宋丽妹" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -372,8 +390,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2016/11/11/Linux文件结构-1/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Linux文件结构</div>
+    <a href="/2020/04/27/如何利用-javabean-自动建立-elasticsearch-的-index-type-document/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何利用 javabean 自动建立 elasticsearch 的 index type document</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -384,7 +402,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Maven"><span class="toc-number">1.</span> <span class="toc-text">Maven</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建maven环境"><span class="toc-number">1.1.</span> <span class="toc-text">搭建maven环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置文件的修改内容："><span class="toc-number">1.2.</span> <span class="toc-text">配置文件的修改内容：</span></a></li></ol></li></ol>
+    
 </div>
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
@@ -439,12 +457,12 @@
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/2016/11/11/Linux文件结构-1/" title="下一篇: Linux文件结构">
+            <a href="/2020/04/27/如何利用-javabean-自动建立-elasticsearch-的-index-type-document/" title="下一篇: 如何利用 javabean 自动建立 elasticsearch 的 index type document">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/11/19/Maven环境搭建/">Maven环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/11/Linux文件结构-1/">Linux文件结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/ajax的使用/">ajax的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/21/Eclipse使用Maven/">Eclipse使用Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/19/spring核心机制依赖注入/">spring核心机制依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/19/spring常用注解/">spring常用注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/spring配置文件/">spring配置文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/单例/">单例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/序列化/">序列化</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/02/20/equals和/">equals和==</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/28/IO/">IO</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/25/jsp九大内置对象/">jsp九大内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/09/30/this关键字/">this关键字</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2020/04/27/如何用已有的elasticsearch-的-index-type表生成-javabean-及其使用方法/">如何用已有的elasticsearch 的 index type表生成 javabean 及其使用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/27/如何利用-javabean-自动建立-elasticsearch-的-index-type-document/">如何利用 javabean 自动建立 elasticsearch 的 index type document</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/10/25/优化慢sql/">优化慢sql</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/22/复用次数多的代码，根据cardUrl查询名字/">复用次数多的代码，根据cardUrl查询名字</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/22/数据存的多个图片路径，需要给前端返回list集合代码/">数据存的多个图片路径，需要给前端返回list集合代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/22/查询出来的数据是个集合，但是需要对集合中的每条数据做字段的添加和字段的处理的情况/">查询出来的数据是个集合，但是需要对集合中的每条数据做字段的添加和字段的处理的情况</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/22/模糊查询，一个值查询多个字段（数据库字段没有做分词的设计情况）/">模糊查询，一个值查询多个字段（数据库字段没有做分词的设计情况）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/22/处理存的字段（点赞的情况，一个人不能重复点赞）/">处理存的字段（点赞的情况，一个人不能重复点赞）</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/22/做延缓或者-关闭延缓关键代码（实质也是处理了一个字符串/">做延缓或者 关闭延缓关键代码（实质也是处理了一个字符串)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/22/项目中已有封装es查询，进行范围查询/">项目中已有封装es查询，进行范围查询</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/22/利用aspose实现html生成word-需要破解，不然下载下来的文档有红色字体水印/">利用aspose实现html生成word(需要破解，不然下载下来的文档有红色字体水印)</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/06/22/利用poi实现html生成word并保存/">利用poi实现html生成word并保存</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/关于作用域/">关于作用域</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/关于this/">关于this</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/JavaScript调试技巧/">JavaScript调试技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/定时器/">定时器</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/jQuery简单动画方法/">jQuery简单动画方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/jQuery常用方法/">jQuery常用方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/jQuery常用的选择元素方法/">jQuery常用的选择元素方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/jQuery事件/">jQuery事件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/Json对象与Json字符串互转/">Json对象与Json字符串互转</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/12/06/js刷新当前页面方法/">js刷新当前页面方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/12/git/">git</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/29/javascript继承/">javascript继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/09/01/javascript创建对象的7中模式/">javascript创建对象的7中模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/11/Linux文件结构-1/">Linux文件结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/15/ajax的使用/">ajax的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/19/搭建springMVC环境/">搭建springMVC环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/Maven结合MyBatis/">Maven结合MyBatis</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/10/Eclipse使用Maven进行分布式开发/">Eclipse使用Maven进行分布式开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/21/Eclipse使用Maven/">Eclipse使用Maven</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/16/Maven环境搭建/">Maven环境搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/19/spring核心机制依赖注入/">spring核心机制依赖注入</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/19/spring常用注解/">spring常用注解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/17/spring配置文件/">spring配置文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/单例/">单例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/25/序列化/">序列化</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/11/10/struts2/">struts2</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/02/20/equals和/">equals和==</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/12/28/IO/">IO</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/25/jsp九大内置对象/">jsp九大内置对象</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/11/03/css/">css</a></li><li class="post-list-item"><a class="post-list-link" href="/2014/09/30/this关键字/">this关键字</a></li></ul>
     <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
@@ -474,7 +492,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2017 宋丽妹
+                &copy; 2020 宋丽妹
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
